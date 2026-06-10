@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGP - Cadastro de Funcionário - Etapa 2</title>
+  <link rel="stylesheet" href="css/Cadastro.css">
+</head>
+<body>
+
+<main class="container">
+
+  <!-- Painel esquerdo -->
+  <section class="lado-esquerdo">
+    <div class="logo-box">S</div>
+    <h1>SGP — Funcionários</h1>
+
+    <div class="info-box">
+      <p class="info-titulo">Dados Profissionais &amp; Bancários</p>
+      <p class="info-desc">Informe os dados da função, remuneração e conta para depósito.</p>
+      <div class="info-item"><span class="dot"></span> Cargo, matrícula e departamento</div>
+      <div class="info-item"><span class="dot"></span> Salário e data de admissão</div>
+      <div class="info-item"><span class="dot"></span> Conta bancária para pagamento</div>
+    </div>
+
+    <div class="info-nota">
+      Etapa 2 de 2 · Campos com <span class="obrig">*</span> são obrigatórios
+    </div>
+  </section>
+
+  <!-- Card do formulário -->
+  <section class="card-form">
+
+    <!-- Indicador de etapas -->
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-circle concluido">✓</div>
+        <span class="step-label concluido">Dados Pessoais &amp; Contato</span>
+      </div>
+      <div class="step-line completo"></div>
+      <div class="step-item">
+        <div class="step-circle ativo">2</div>
+        <span class="step-label ativo">Dados Profissionais &amp; Bancários</span>
+      </div>
+    </div>
+
+    <form action="sucesso.html">
+
+      <!-- Dados Profissionais -->
+      <p class="secao-titulo">Dados Profissionais</p>
+
+      <div class="row-2">
+        <div style="flex: 1">
+          <label for="matricula">Matrícula <span class="obrig">*</span></label>
+          <div class="input-box">
+            <span class="icone">#</span>
+            <input type="text" id="matricula" placeholder="Ex: 00123" required>
+          </div>
+        </div>
+        <div style="flex: 2">
+          <label for="cargo">Cargo <span class="obrig">*</span></label>
+          <div class="input-box">
+            <span class="icone">💼</span>
+            <input type="text" id="cargo" placeholder="Ex: Analista de TI" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div>
+          <label for="departamento">Departamento <span class="obrig">*</span></label>
+          <div class="input-box">
+            <span class="icone">🏢</span>
+            <input type="text" id="departamento" placeholder="Ex: Tecnologia" required>
+          </div>
+        </div>
+        <div>
+          <label for="admissao">Data de Admissão <span class="obrig">*</span></label>
+          <div class="input-box">
+            <span class="icone">📅</span>
+            <input type="date" id="admissao" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div>
+          <label for="salario">Salário Base (R$) <span class="obrig">*</span></label>
+          <div class="input-box">
+            <span class="icone">💳</span>
+            <input type="text" id="salario" placeholder="0,00" required>
+          </div>
+        </div>
+        <div>
+          <label for="supervisor">Supervisor</label>
+          <div class="input-box">
+            <span class="icone">👤</span>
+            <select id="supervisor">
+              <option value="" disabled selected>Selecione...</option>
+              <option value="ana">Ana Paula Mendes</option>
+              <option value="carlos">Carlos Eduardo Lima</option>
+              <option value="fernanda">Fernanda Costa</option>
+              <option value="roberto">Roberto Alves</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <label>Status <span class="obrig">*</span></label>
+      <div class="status-group">
+        <label class="status-opcao ativo-opcao">
+          <input type="radio" name="status" value="ativo" checked>
+          <span class="status-dot verde"></span> Ativo
+        </label>
+        <label class="status-opcao inativo-opcao">
+          <input type="radio" name="status" value="inativo">
+          <span class="status-dot vermelho"></span> Inativo
+        </label>
+      </div>
+
+      <!-- Dados Bancários -->
+      <p class="secao-titulo">Dados Bancários</p>
+
+      <label for="banco">Banco <span class="obrig">*</span></label>
+      <div class="input-box">
+        <span class="icone">🏦</span>
+        <select id="banco" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="001">001 - Banco do Brasil</option>
+          <option value="033">033 - Santander</option>
+          <option value="104">104 - Caixa Econômica</option>
+          <option value="237">237 - Bradesco</option>
+          <option value="341">341 - Itaú</option>
+          <option value="756">756 - Sicoob</option>
+        </select>
+      </div>
+
+      <div class="row-2">
+        <div>
+          <label for="agencia">Agência <span class="obrig">*</span></label>
+          <div class="input-box">
+            <span class="icone">🏦</span>
+            <input type="text" id="agencia" placeholder="0000" required>
+          </div>
+        </div>
+        <div>
+          <label for="conta">Conta <span class="obrig">*</span></label>
+          <div class="input-box">
+            <span class="icone">#</span>
+            <input type="text" id="conta" placeholder="00000-0" required>
+          </div>
+        </div>
+      </div>
+
+      <label for="tipoConta">Tipo de Conta <span class="obrig">*</span></label>
+      <div class="input-box">
+        <span class="icone">💳</span>
+        <select id="tipoConta" required>
+          <option value="" disabled selected>Selecione...</option>
+          <option value="corrente">Corrente</option>
+          <option value="poupanca">Poupança</option>
+        </select>
+      </div>
+
+      <!-- Acesso ao Sistema -->
+      <p class="secao-titulo">Acesso ao Sistema</p>
+
+      <div class="row-2">
+        <div>
+          <label for="senha">Senha <span class="obrig">*</span></label>
+          <div class="input-box">
+            <span class="icone">🔒</span>
+            <input type="password" id="senha" placeholder="Crie uma senha" required>
+            <span class="icone">👁</span>
+          </div>
+        </div>
+        <div>
+          <label for="confirmarSenha">Confirmar Senha <span class="obrig">*</span></label>
+          <div class="input-box">
+            <span class="icone">🔒</span>
+            <input type="password" id="confirmarSenha" placeholder="Repita a senha" required>
+            <span class="icone">👁</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="botoes">
+        <a href="cadastro-etapa1.html" class="btn-voltar">‹ Voltar</a>
+        <button type="submit" class="btn-cadastrar">✓ Cadastrar Funcionário</button>
+      </div>
+    </form>
+
+    <div class="divisor">
+      <span></span><p>ou</p><span></span>
+    </div>
+    <div class="links">
+      <a href="#">← Voltar ao Login</a>
+    </div>
+
+  </section>
+</main>
+
+</body>
+</html>
