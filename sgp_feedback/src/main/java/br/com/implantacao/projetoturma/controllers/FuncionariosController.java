@@ -64,4 +64,29 @@ public class FuncionariosController {
 		return null;
 	}//atualizar
 	
+	@GetMapping("/buscarnome/{nome}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<FuncionariosEntity> BuscarPorNome(@PathVariable String nome){
+		return repository.findByNomeContainingIgnoreCase(nome);
+	}// buscar por nome
+	
+	@GetMapping("/buscacpf/{cpf}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<FuncionariosEntity> BuscarPorCpf(@PathVariable String cpf){
+		return repository.findByCpfContainingIgnoreCase(cpf);
+	}// buscar por cpf
+	
+	@GetMapping("/buscarmatricula/{matricula}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<FuncionariosEntity> BuscarPorMatricula(@PathVariable String matricula){
+		return repository.findByMatriculaContainingIgnoreCase(matricula);
+	}//buscar por matricula
+	
+	
+	
+	
+	
+	
+	
+	
 }
