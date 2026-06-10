@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.br.CPF;
 @Entity
 @Table(name = "Funcionarios")
 public class FuncionariosEntity implements Serializable{
@@ -19,35 +22,73 @@ public class FuncionariosEntity implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	//dados pessoais
-	private String nome;
-	private String cpf;
-	private LocalDate dataNascimento;
-	private String sexo;
-	private String estadoCivil;
+		//dados pessoais
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String nome;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		@CPF
+		private String cpf;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private LocalDate dataNascimento;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String sexo;
+		
+		private String estadoCivil;//Não é obrigatório
+		
+		//contato
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String email;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String telefone;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")		
+		private String endereco;//logradouro
+		
+		@NotBlank(message = "Campo Obrigatório!!!")		
+		private String cidade;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String estado;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String cep;
 	
-	//contato
-	private String email;
-	private String telefone;
-	private String endereco;//logradouro
-	private String cidade;
-	private String estado;
-	private String cep;
-
-	//dados profissionais
-	private String cargo;
-	private String departamento;
-	private String matricula;
-	private LocalDate dataAdmissao;
-	private float salarioBase;
-	private boolean status;
-	
-	//dados bancarios
-	private String banco;
-	private String agencia;
-	private String conta;
-	private String tipoConta;
-	
+		//dados profissionais
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String cargo;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String departamento;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String matricula;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private LocalDate dataAdmissao;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private float salarioBase;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private boolean status;
+		
+		//dados bancarios
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String banco;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String agencia;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String conta;
+		
+		@NotBlank(message = "Campo Obrigatório!!!")
+		private String tipoConta;
+		
 	
 	
 	public LocalDate getDataNascimento() {

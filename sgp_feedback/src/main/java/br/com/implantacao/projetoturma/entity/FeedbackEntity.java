@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "Feedback")
 public class FeedbackEntity implements Serializable{
@@ -31,9 +33,16 @@ public class FeedbackEntity implements Serializable{
 	@JoinColumn(name = "metaID")
 	private MetaEntity meta;
 	
+	@NotNull(message = "Campo Obrigatório!!!")
 	private LocalDate dataAvaliacao;
+	
+	@NotNull(message = "Campo Obrigatório!!!")
 	private float resultado;
-	private float percentual; //percentual atingido
+	
+	@NotBlank(message = "Campo Obrigatório!!!")
+	private float percentualAtingido; //percentual atingido
+	
+	
 	private String comentariosPositivos;
 	
 	public Long getId() {
@@ -66,11 +75,12 @@ public class FeedbackEntity implements Serializable{
 	public void setResultado(float resultado) {
 		this.resultado = resultado;
 	}
-	public float getPercentual() {
-		return percentual;
+
+	public float getPercentualAtingido() {
+		return percentualAtingido;
 	}
-	public void setPercentual(float percentual) {
-		this.percentual = percentual;
+	public void setPercentualAtingido(float percentualAtingido) {
+		this.percentualAtingido = percentualAtingido;
 	}
 	public String getComentariosPositivos() {
 		return comentariosPositivos;
