@@ -1,7 +1,8 @@
-package br.com.implantacao.projetoturma.entity;
+	package br.com.implantacao.projetoturma.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "FolhaPagamento")
 public class FolhaPagamentoEntity implements Serializable {
@@ -25,13 +28,17 @@ public class FolhaPagamentoEntity implements Serializable {
 	
 	@OneToMany
 	@JoinColumn(name = "funcionariosID")
-	private FuncionariosEntity funcionarios;
+	private List<FuncionariosEntity> funcionarios;
 	
+	@NotNull(message = "Campo Obrigatório!!!")
 	private float salarioBase;
+	
 	private String banco;
 	private String tipoConta;//corrente, poupança
 	private String beneficios;//vale transporte , vale refeição etc..
 	private float desconto;
+	
+	@NotBlank(message = "Campo Obrigatório!!!")
 	private LocalDate competencia;
 	private float horaExtra;
 	private float valorHoraExtra;
@@ -39,14 +46,17 @@ public class FolhaPagamentoEntity implements Serializable {
 	private float inss;
 	private float fgts;
 	private float salarioLiquido;
+	
+	@NotBlank(message = "Campo Obrigatório!!!")
 	private String status;
 	
 	
 	
-	public FuncionariosEntity getFuncionarios() {
+	
+	public List<FuncionariosEntity> getFuncionarios() {
 		return funcionarios;
 	}
-	public void setFuncionarios(FuncionariosEntity funcionarios) {
+	public void setFuncionarios(List<FuncionariosEntity> funcionarios) {
 		this.funcionarios = funcionarios;
 	}
 	public LocalDate getCompetencia() {

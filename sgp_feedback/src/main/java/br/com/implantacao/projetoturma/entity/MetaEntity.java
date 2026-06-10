@@ -3,6 +3,7 @@
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Metas")
@@ -18,11 +19,24 @@ public class MetaEntity implements Serializable {
     private Long id;
 
     private String titulo;//: Nome curto da meta (ex: "Aumentar vendas em 10%").
+    
+    @NotBlank(message = "Campo Obrigatório!!!")
     private String descricao;//Detalhamento do que precisa ser feito.
+    
+    @NotBlank(message = "Campo Obrigatório!!!")
     private LocalDate dataInicio;
+    
+    @NotBlank(message = "Campo Obrigatório!!!")
     private LocalDate dataPrazo;
+    
+    @NotBlank(message = "Campo Obrigatório!!!")
     private String status; // Pendente, Em Andamento, Concluída
-    private float resultadoPrevisto;
+    
+    
+    private float resultadoPrevisto;//não é obrigatório
+    
+
+    @NotBlank(message = "Campo Obrigatório!!!")
     private String tipoMeta;
     
     @ManyToOne
@@ -31,6 +45,7 @@ public class MetaEntity implements Serializable {
 
     
     
+    //getters and setters
 	public float getResultadoPrevisto() {
 		return resultadoPrevisto;
 	}
