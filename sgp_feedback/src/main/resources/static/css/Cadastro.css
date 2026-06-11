@@ -404,4 +404,12 @@ button[type="submit"]:hover,
     flex-direction: column;
     gap: 0;
   }
+
+}
+
+.logo-img {
+    width: 140px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
 }
