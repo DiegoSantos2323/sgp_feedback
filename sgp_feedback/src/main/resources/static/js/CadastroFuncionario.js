@@ -8,51 +8,51 @@ const API_BUSCAR_POR_MATRICULA = 'http://localhost:8014/funcionarios/buscarmatri
 
 let editandoId=null;
 
-function etapaUm(){
-	localStorage.setItem("nome", document.getElementById("nome").value);
-	localStorage.setItem("cpf", document.getElementById("cpf").value);
-	localStorage.setItem("rg", document.getElementById("rg").value);
-	localStorage.setItem("nascimento", document.getElementById("nascimento").value);
-	localStorage.setItem("sexo", document.getElementById("sexo").value);
-	localStorage.setItem("estadoCivil", document.getElementById("estadoCivil").value);
-	localStorage.setItem("email", document.getElementById("email").value);
-	localStorage.setItem("telefone", document.getElementById("telefone").value);
-	localStorage.setItem("endereco", document.getElementById("endereco").value);
-	localStorage.setItem("cep", document.getElementById("cep").value);
-	localStorage.setItem("cidade", document.getElementById("cidade").value);
-	localStorage.setItem("estado", document.getElementById("estado").value);
-}
-
 async function Cadastrar() {
-	const funcionario = {
-	  matricula: document.getElementById('matricula').value,
-	  cargo: document.getElementById('cargo').value,
-	  departamento: document.getElementById('departamento').value,
-	  dataAdmissao: document.getElementById('admissao').value,
-	  salarioBase: document.getElementById('salario').value,
-	  supervisor: document.getElementById('supervisor').value,
-	  status: document.querySelector('input[name="status"]:checked').value,
-	  banco: document.getElementById('banco').value,
-	  agencia: document.getElementById('agencia').value,
-	  conta: document.getElementById('conta').value,
-	  tipoConta: document.getElementById('tipoConta').value,
-	  senha: document.getElementById('senha').value,
-	  confirmarSenha: document.getElementById('confirmarSenha').value
-	};
-    console.log(funcionario);
 
-    const response = await fetch(API_SALVAR,{
-		method:'POST',
-		headers:{
-			'Content-Type': 'application/json'
-				    },
-				    body: JSON.stringify(funcionario)
-		
-	});//chave response
-	if(response.ok){
-		alert("Funcionário cadastrado com sucesso!!!")
-	}else{
-		alert("Erro ao cadastrar funcionário")
-	}
+  const funcionario = {
+ 
+    nome: localStorage.getItem("nome"),
+    cpf: localStorage.getItem("cpf"),
+    dataNascimento: localStorage.getItem("nascimento"),
+    sexo: localStorage.getItem("sexo"),
+    estadoCivil: localStorage.getItem("estadoCivil"),
+    email: localStorage.getItem("email"),
+    telefone: localStorage.getItem("telefone"),
+    endereco: localStorage.getItem("endereco"),
+    cep: localStorage.getItem("cep"),
+    cidade: localStorage.getItem("cidade"),
+    estado: localStorage.getItem("estado"),
 
-}//chave cadastrar
+
+    matricula: document.getElementById('matricula').value,
+    cargo: document.getElementById('cargo').value,
+    departamento: document.getElementById('departamento').value,
+    dataAdmissao: document.getElementById('admissao').value,
+    salarioBase: document.getElementById('salario').value,
+    status: document.querySelector('input[name="status"]:checked').value === 'ativo',
+    banco: document.getElementById('banco').value,
+    agencia: document.getElementById('agencia').value,
+    conta: document.getElementById('conta').value,
+    tipoConta: document.getElementById('tipoConta').value
+  };
+
+  console.log(funcionario);
+
+  const response = await fetch(API_SALVAR, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(funcionario)
+  });
+
+  if (response.ok) {
+    alert("Funcionário cadastrado com sucesso!!!");
+    localStorage.clear(); 
+  } else {
+    const error = await response.text();
+    console.log(error);
+    alert("Erro ao cadastrar funcionário");
+  }
+}
