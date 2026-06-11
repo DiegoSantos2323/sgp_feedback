@@ -10,34 +10,34 @@ let editandoId=null;
 
 async function Cadastrar() {
 
-    const funcionario = {
-        nome: document.getElementById('nome').value,
-        cpf: document.getElementById('cpf').value,
-        rg: document.getElementById('rg').value,
-        dataNascimento: document.getElementById('nascimento').value,
-        sexo: document.getElementById('sexo').value,
-        estadoCivil: document.getElementById('estadoCivil').value,
-        email: document.getElementById('email').value,
-        telefone: document.getElementById('telefone').value,
-        endereco: document.getElementById('endereco').value,
-        cep: document.getElementById('cep').value,
-        cidade: document.getElementById('cidade').value,
-        estado: document.getElementById('estado').value,
-			matricula: document.getElementById('matricula').value,
-			  cargo: document.getElementById('cargo').value,
-		      departamento: document.getElementById('departamento').value,
-		      dataAdmissao: document.getElementById('admissao').value,
-		      salarioBase: document.getElementById('salario').value,
-		      supervisor: document.getElementById('supervisor').value,
-		      status: document.querySelector('input[name="status"]:checked').value,
-		      banco: document.getElementById('banco').value,
-		      agencia: document.getElementById('agencia').value,
-		      conta: document.getElementById('conta').value,
-		      tipoConta: document.getElementById('tipoConta').value,
-		      senha: document.getElementById('senha').value,
-		      confirmarSenha: document.getElementById('confirmarSenha').value
+	localStorage.setItem("nome", document.getElementById("nome").value);
+	localStorage.setItem("cpf", document.getElementById("cpf").value);
+	localStorage.setItem("rg", document.getElementById("rg").value);
+	localStorage.setItem("nascimento", document.getElementById("nascimento").value);
+	localStorage.setItem("sexo", document.getElementById("sexo").value);
+	localStorage.setItem("estadoCivil", document.getElementById("estadoCivil").value);
+	localStorage.setItem("email", document.getElementById("email").value);
+	localStorage.setItem("telefone", document.getElementById("telefone").value);
+	localStorage.setItem("endereco", document.getElementById("endereco").value);
+	localStorage.setItem("cep", document.getElementById("cep").value);
+	localStorage.setItem("cidade", document.getElementById("cidade").value);
+	localStorage.setItem("estado", document.getElementById("estado").value);
 
-    };
+	const funcionario = {
+	  matricula: document.getElementById('matricula').value,
+	  cargo: document.getElementById('cargo').value,
+	  departamento: document.getElementById('departamento').value,
+	  dataAdmissao: document.getElementById('admissao').value,
+	  salarioBase: document.getElementById('salario').value,
+	  supervisor: document.getElementById('supervisor').value,
+	  status: document.querySelector('input[name="status"]:checked').value,
+	  banco: document.getElementById('banco').value,
+	  agencia: document.getElementById('agencia').value,
+	  conta: document.getElementById('conta').value,
+	  tipoConta: document.getElementById('tipoConta').value,
+	  senha: document.getElementById('senha').value,
+	  confirmarSenha: document.getElementById('confirmarSenha').value
+	};
     console.log(funcionario);
 
     const response = await fetch(API_SALVAR,{
