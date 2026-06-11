@@ -34,7 +34,7 @@ public class FuncionariosEntity implements Serializable{
 		@CPF
 		private String cpf;
 		
-		@NotBlank(message = "Campo Obrigatório!!!")
+		@NotNull(message = "Campo Obrigatório!!!")
 		private LocalDate dataNascimento;
 		
 		@NotBlank(message = "Campo Obrigatório!!!")
@@ -77,10 +77,9 @@ public class FuncionariosEntity implements Serializable{
 		@PastOrPresent(message = "A data de admissão não pode ser futura")
 		private LocalDate dataAdmissao;
 		
-		@NotBlank(message = "Campo Obrigatório!!!")
+		@NotNull(message = "Campo Obrigatório!!!")
 		private float salarioBase;
 		
-		@NotBlank(message = "Campo Obrigatório!!!")
 		private boolean status;
 		
 		//dados bancarios
