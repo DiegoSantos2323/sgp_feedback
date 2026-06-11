@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Folha de Pagamento</title>
+    <link rel="stylesheet" href="css/CriacaoFolhaPagamento.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="topo">
+
+        <div class="titulo">
+          <button class="btn-voltar" onclick="history.back()">
+    ←
+</button>
+
+            <div>
+                <h1>Folha de Pagamento</h1>
+                <p>Gerencie salários, benefícios e histórico de pagamentos</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="conteudo">
+
+        <!-- RESUMO -->
+        <aside class="resumo">
+
+            <h3>Resumo</h3>
+
+            <div class="item">
+                <span>Salário Base</span>
+                <strong>R$ 0,00</strong>
+            </div>
+
+            <div class="item">
+                <span>Horas Extras</span>
+                <strong>R$ 0,00</strong>
+            </div>
+
+            <div class="item">
+                <span>Bônus</span>
+                <strong>R$ 0,00</strong>
+            </div>
+
+            <div class="item">
+                <span>Descontos</span>
+                <strong>R$ 0,00</strong>
+            </div>
+
+            <div class="item">
+                <span>INSS</span>
+                <strong>R$ 0,00</strong>
+            </div>
+
+            <hr>
+
+            <div class="item liquido">
+                <span>Líquido</span>
+                <strong>R$ 0,00</strong>
+            </div>
+
+        </aside>
+
+        <!-- FORMULÁRIO -->
+        <main class="formulario">
+
+            <h2>Nova Folha de Pagamento</h2>
+
+            <p>
+                Preencha os dados para gerar a folha mensal do funcionário.
+            </p>
+
+            <h4>IDENTIFICAÇÃO</h4>
+
+            <div class="grupo">
+                <label>Funcionário *</label>
+
+                <select>
+                    <option>Selecione o funcionário...</option>
+                </select>
+            </div>
+
+            <div class="linha">
+
+                <div class="grupo">
+                    <label>Competência *</label>
+
+                    <select>
+                        <option>Janeiro</option>
+                        <option>Fevereiro</option>
+                        <option>Março</option>
+                        <option>Abril</option>
+                        <option>Maio</option>
+                        <option>Junho</option>
+                        <option>Julho</option>
+                        <option>Agosto</option>
+                        <option>Setembro</option>
+                        <option>Outubro</option>
+                        <option>Novembro</option>
+                        <option>Dezembro</option>
+                    </select>
+                </div>
+
+                <div class="grupo">
+                    <label>&nbsp;</label>
+
+                    <input type="number" value="2026">
+                </div>
+
+            </div>
+
+            <h4>REMUNERAÇÃO</h4>
+
+            <div class="linha">
+
+                <div class="grupo">
+                    <label>Salário Base *</label>
+                    <input type="text" placeholder="R$ 0,00">
+                </div>
+
+                <div class="grupo">
+                    <label>Bônus</label>
+                    <input type="text" placeholder="R$ 0,00">
+                </div>
+
+            </div>
+
+            <div class="linha">
+
+                <div class="grupo">
+                    <label>Horas Extras</label>
+                    <input type="text" placeholder="R$ 0,00">
+                </div>
+
+                <div class="grupo">
+                    <label>Valor Hora Extra</label>
+                    <input type="text" placeholder="R$ 0,00">
+                </div>
+
+            </div>
+
+            <h4>DEDUÇÕES</h4>
+
+            <div class="linha">
+
+                <div class="grupo">
+                    <label>Descontos</label>
+                    <input type="text" placeholder="R$ 0,00">
+                </div>
+
+                <div class="grupo">
+                    <label>INSS</label>
+                    <input type="text" placeholder="R$ 0,00">
+                </div>
+
+                <div class="grupo">
+                    <label>FGTS</label>
+                    <input type="text" placeholder="R$ 0,00">
+                </div>
+
+            </div>
+
+            <h4>RESULTADO</h4>
+
+            <div class="resultado">
+                <label>Salário Líquido</label>
+                <input type="text" value="R$ 0,00" readonly>
+            </div>
+
+            <div class="acoes">
+            
+             <button class="btn-secundario" onclick="history.back()">
+    Cancelar
+</button>
+
+                <button class="btn-salvar">
+                    Gerar Folha
+                </button>
+            </div>
+
+        </main>
+
+    </div>
+
+</div>
+
+</body>
+</html>
