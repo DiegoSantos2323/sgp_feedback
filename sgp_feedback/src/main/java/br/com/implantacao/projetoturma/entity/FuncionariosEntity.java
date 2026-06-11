@@ -3,12 +3,16 @@ package br.com.implantacao.projetoturma.entity;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 
 import org.hibernate.validator.constraints.br.CPF;
 @Entity
@@ -40,6 +44,7 @@ public class FuncionariosEntity implements Serializable{
 		
 		//contato
 		@NotBlank(message = "Campo Obrigatório!!!")
+		@Email
 		private String email;
 		
 		@NotBlank(message = "Campo Obrigatório!!!")
@@ -65,9 +70,11 @@ public class FuncionariosEntity implements Serializable{
 		private String departamento;
 		
 		@NotBlank(message = "Campo Obrigatório!!!")
+		@Column(unique = true)
 		private String matricula;
 		
-		@NotBlank(message = "Campo Obrigatório!!!")
+		@NotNull(message = "Data de admissão é obrigatória")
+		@PastOrPresent(message = "A data de admissão não pode ser futura")
 		private LocalDate dataAdmissao;
 		
 		@NotBlank(message = "Campo Obrigatório!!!")
