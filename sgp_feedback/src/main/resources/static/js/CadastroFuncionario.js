@@ -8,8 +8,7 @@ const API_BUSCAR_POR_MATRICULA = 'http://localhost:8014/funcionarios/buscarmatri
 
 let editandoId=null;
 
-async function Cadastrar() {
-
+function etapaUm(){
 	localStorage.setItem("nome", document.getElementById("nome").value);
 	localStorage.setItem("cpf", document.getElementById("cpf").value);
 	localStorage.setItem("rg", document.getElementById("rg").value);
@@ -22,7 +21,9 @@ async function Cadastrar() {
 	localStorage.setItem("cep", document.getElementById("cep").value);
 	localStorage.setItem("cidade", document.getElementById("cidade").value);
 	localStorage.setItem("estado", document.getElementById("estado").value);
+}
 
+async function Cadastrar() {
 	const funcionario = {
 	  matricula: document.getElementById('matricula').value,
 	  cargo: document.getElementById('cargo').value,
