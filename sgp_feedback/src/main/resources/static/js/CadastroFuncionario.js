@@ -8,51 +8,52 @@ const API_BUSCAR_POR_MATRICULA = 'http://localhost:8014/funcionarios/buscarmatri
 
 let editandoId=null;
 
+function salvarEtapa1() {
+
+    funcionario = {
+        nome: document.getElementById('nome').value,
+        cpf: document.getElementById('cpf').value,
+        rg: document.getElementById('rg').value,
+        nascimento: document.getElementById('nascimento').value,
+        sexo: document.getElementById('sexo').value,
+        estadoCivil: document.getElementById('estadoCivil').value,
+        email: document.getElementById('email').value,
+        telefone: document.getElementById('telefone').value,
+        endereco: document.getElementById('endereco').value,
+        cep: document.getElementById('cep').value,
+        cidade: document.getElementById('cidade').value,
+        estado: document.getElementById('estado').value
+    };
+    localStorage.setItem("funcionario", JSON.stringify(funcionario));
+    window.location.href = "cadastro-etapa2.html";//para ir na etapa 2
+}
+
 async function Cadastrar() {
-
-  const funcionario = {
- 
-    nome: localStorage.getItem("nome"),
-    cpf: localStorage.getItem("cpf"),
-    dataNascimento: localStorage.getItem("nascimento"),
-    sexo: localStorage.getItem("sexo"),
-    estadoCivil: localStorage.getItem("estadoCivil"),
-    email: localStorage.getItem("email"),
-    telefone: localStorage.getItem("telefone"),
-    endereco: localStorage.getItem("endereco"),
-    cep: localStorage.getItem("cep"),
-    cidade: localStorage.getItem("cidade"),
-    estado: localStorage.getItem("estado"),
-
-
-    matricula: document.getElementById('matricula').value,
-    cargo: document.getElementById('cargo').value,
-    departamento: document.getElementById('departamento').value,
-    dataAdmissao: document.getElementById('admissao').value,
-    salarioBase: document.getElementById('salario').value,
-    status: document.querySelector('input[name="status"]:checked').value === 'ativo',
-    banco: document.getElementById('banco').value,
-    agencia: document.getElementById('agencia').value,
-    conta: document.getElementById('conta').value,
-    tipoConta: document.getElementById('tipoConta').value
-  };
-
-  console.log(funcionario);
-
-  const response = await fetch(API_SALVAR, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(funcionario)
-  });
-
-  if (response.ok) {
-    alert("Funcionário cadastrado com sucesso!!!");
-    localStorage.clear(); 
-  } else {
-    const error = await response.text();
-    console.log(error);
-    alert("Erro ao cadastrar funcionário");
-  }
+	const etapa1 = JSON.parse(localStorage.getItem("funcionario")) || {};//para pegar os dados da etapa 1
+    const etapa2 = { 
+        matricula: document.getElementById('matricula').value,
+        cargo: document.getElementById('cargo').value,
+        departamento: document.getElementById('departamento').value,
+        admissao: document.getElementById('admissao').value,
+        salario: document.getElementById('salario').value,
+        supervisor: document.getElementById('supervisor').value,
+        status: document.querySelector('input[name="status"]:checked').value,
+        banco: document.getElementById('banco').value,
+        agencia: document.getElementById('agencia').value,
+        conta: document.getElementById('conta').value,
+        tipoConta: document.getElementById('tipoConta').value
+    };
+    await fetch(API_SALVAR, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(etapa2)
+    });
+ 	if(response.ok){
+		  alert("Funcionário cadastrado com sucesso!");
+	}else{
+		alert("Erro!")
+	}
+  
 }

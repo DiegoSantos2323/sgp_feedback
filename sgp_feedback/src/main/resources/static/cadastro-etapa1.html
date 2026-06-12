@@ -6,7 +6,7 @@
   <title>SGP - Cadastro de Funcionário - Etapa 1</title>
   <link rel="stylesheet" href="css/Cadastro.css">
 </head>
-<body>
+<body onload="carregarEtapa1()">
 
 <main class="container">
 
@@ -154,7 +154,7 @@
         </div>
       </div>
 
-      <button type="submit">Próxima Etapa ›</button>
+      <button type="button" onclick="salvarEtapa1()" class="btn-cadastrar">Próxima Etapa ›</button>
     </form>
 
     <div class="divisor">
