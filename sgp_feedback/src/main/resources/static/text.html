@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGP - Folha de Pagamento</title>
+  <link rel="stylesheet" href="css/text.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-esquerdo">
+      <a href="index.html" class="btn-voltar-header">&#8592;</a>
+      <div>
+        <h1 class="header-titulo">Folha de Pagamento</h1>
+        <p class="header-sub">Gerencie salários, benefícios e histórico de pagamentos</p>
+      </div>
+    </div>
+    <a href="folha-nova.html" class="btn-primario">+ Nova Folha</a>
+  </div>
+
+  <!-- Cards de resumo -->
+  <div class="resumo-cards">
+    <div class="resumo-card">
+      <p class="resumo-label">Total de Folhas</p>
+      <p class="resumo-valor" style="color:#001f6b">3</p>
+    </div>
+    <div class="resumo-card" style="background:#fff8e6">
+      <p class="resumo-label">Folhas Abertas</p>
+      <p class="resumo-valor" style="color:#b45309">1</p>
+    </div>
+    <div class="resumo-card" style="background:#f0faf4">
+      <p class="resumo-label">Folhas Pagas</p>
+      <p class="resumo-valor" style="color:#0a7a3f">2</p>
+    </div>
+    <div class="resumo-card" style="background:#eaf2ff">
+      <p class="resumo-label">Total a Pagar</p>
+      <p class="resumo-valor" style="color:#0052cc">R$ 6.780,00</p>
+    </div>
+  </div>
+
+  <!-- Barra de busca -->
+  <div class="busca-bar">
+    <span class="busca-icone">&#128269;</span>
+    <input type="text" class="busca-input" placeholder="Buscar por funcionário ou competência...">
+  </div>
+
+  <!-- Tabela -->
+  <div class="tabela-container">
+    <div class="tabela-header">
+      <span>Funcionário</span>
+      <span>Competência</span>
+      <span>Salário Base</span>
+      <span>Salário Líquido</span>
+      <span>Status</span>
+      <span>Ações</span>
+    </div>
+
+    <!-- Linha 1 -->
+    <div class="tabela-linha">
+      <div class="func-cell">
+        <div class="avatar">AP</div>
+        <span class="func-nome">Ana Paula Mendes</span>
+      </div>
+      <span class="cell">Abril/2026</span>
+      <span class="cell">R$ 5.800,00</span>
+      <span class="cell cell-destaque">R$ 5.852,00</span>
+      <span class="badge badge-paga">Paga</span>
+      <div class="acoes">
+        <a href="folha-detalhe.html" class="btn-ver">Ver</a>
+      </div>
+    </div>
+
+    <!-- Linha 2 -->
+    <div class="tabela-linha">
+      <div class="func-cell">
+        <div class="avatar">CE</div>
+        <span class="func-nome">Carlos Eduardo Lima</span>
+      </div>
+      <span class="cell">Abril/2026</span>
+      <span class="cell">R$ 4.200,00</span>
+      <span class="cell cell-destaque">R$ 3.688,00</span>
+      <span class="badge badge-paga">Paga</span>
+      <div class="acoes">
+        <a href="folha-detalhe.html" class="btn-ver">Ver</a>
+      </div>
+    </div>
+
+    <!-- Linha 3 -->
+    <div class="tabela-linha">
+      <div class="func-cell">
+        <div class="avatar">FC</div>
+        <span class="func-nome">Fernanda Costa</span>
+      </div>
+      <span class="cell">Maio/2026</span>
+      <span class="cell">R$ 6.500,00</span>
+      <span class="cell cell-destaque">R$ 6.780,00</span>
+      <span class="badge badge-aberta">Aberta</span>
+      <div class="acoes">
+        <a href="folha-detalhe.html" class="btn-ver">Ver</a>
+        <button class="btn-pagar">Pagar</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>

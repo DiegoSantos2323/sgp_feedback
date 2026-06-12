@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGP - Nova Folha de Pagamento</title>
+  <link rel="stylesheet" href="css/text.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-esquerdo">
+      <a href="folha-lista.html" class="btn-voltar-header">&#8592;</a>
+      <div>
+        <h1 class="header-titulo">Folha de Pagamento</h1>
+        <p class="header-sub">Gerencie salários, benefícios e histórico de pagamentos</p>
+      </div>
+    </div>
+    <a href="folha-lista.html" class="btn-secundario">&#10005; Cancelar</a>
+  </div>
+
+  <div class="nova-layout">
+
+    <!-- Painel de resumo lateral -->
+    <aside class="resumo-lateral">
+      <p class="resumo-lateral-titulo">Resumo</p>
+
+      <div class="resumo-linha">
+        <span>Salário Base</span>
+        <span class="resumo-linha-valor">R$ 0,00</span>
+      </div>
+      <div class="resumo-linha">
+        <span>Horas Extras</span>
+        <span class="resumo-linha-valor">R$ 0,00</span>
+      </div>
+      <div class="resumo-linha">
+        <span>Bônus</span>
+        <span class="resumo-linha-valor">R$ 0,00</span>
+      </div>
+      <div class="resumo-linha">
+        <span>Descontos</span>
+        <span class="resumo-linha-valor negativo">- R$ 0,00</span>
+      </div>
+      <div class="resumo-linha">
+        <span>INSS</span>
+        <span class="resumo-linha-valor negativo">- R$ 0,00</span>
+      </div>
+
+      <div class="resumo-total">
+        <span>Líquido</span>
+        <span class="resumo-total-valor">R$ 0,00</span>
+      </div>
+    </aside>
+
+    <!-- Formulário -->
+    <div class="card-form-nova">
+      <h2 class="form-titulo">Nova Folha de Pagamento</h2>
+      <p class="form-sub">Preencha os dados para gerar a folha mensal do funcionário.</p>
+
+      <form action="folha-lista.html">
+
+        <!-- Identificação -->
+        <p class="secao-titulo">Identificação</p>
+
+        <label for="funcionario">Funcionário <span class="obrig">*</span></label>
+        <div class="input-box">
+          <span class="icone">&#128100;</span>
+          <select id="funcionario" required>
+            <option value="" disabled selected>Selecione o funcionário...</option>
+            <option>Ana Paula Mendes</option>
+            <option>Carlos Eduardo Lima</option>
+            <option>Fernanda Costa</option>
+            <option>Roberto Alves</option>
+            <option>Marcos Oliveira</option>
+            <option>Juliana Soares</option>
+          </select>
+        </div>
+
+        <label>Competência <span class="obrig">*</span></label>
+        <div class="row-2">
+          <div style="flex:2">
+            <div class="input-box">
+              <span class="icone">&#128197;</span>
+              <select required>
+                <option value="" disabled selected>Mês</option>
+                <option value="01">Janeiro</option>
+                <option value="02">Fevereiro</option>
+                <option value="03">Março</option>
+                <option value="04">Abril</option>
+                <option value="05">Maio</option>
+                <option value="06">Junho</option>
+                <option value="07">Julho</option>
+                <option value="08">Agosto</option>
+                <option value="09">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+              </select>
+            </div>
+          </div>
+          <div style="flex:1">
+            <div class="input-box">
+              <select>
+                <option>2024</option>
+                <option>2025</option>
+                <option selected>2026</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Remuneração -->
+        <p class="secao-titulo">Remuneração</p>
+
+        <div class="row-2">
+          <div>
+            <label for="salBase">Salário Base <span class="obrig">*</span></label>
+            <div class="input-box">
+              <span class="icone">&#128181;</span>
+              <input type="text" id="salBase" placeholder="0,00" inputmode="numeric" required>
+              <span class="sufixo">R$</span>
+            </div>
+          </div>
+          <div>
+            <label for="bonus">Bônus</label>
+            <div class="input-box">
+              <span class="icone">&#127873;</span>
+              <input type="text" id="bonus" placeholder="0,00" inputmode="numeric">
+              <span class="sufixo">R$</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-2">
+          <div>
+            <label for="he">Horas Extras (qtd) <span class="hint">horas</span></label>
+            <div class="input-box">
+              <span class="icone">&#9200;</span>
+              <input type="text" id="he" placeholder="0,00" inputmode="numeric">
+              <span class="sufixo">R$</span>
+            </div>
+          </div>
+          <div>
+            <label for="vhe">Valor Horas Extras</label>
+            <div class="input-box">
+              <span class="icone">&#128181;</span>
+              <input type="text" id="vhe" placeholder="0,00" inputmode="numeric">
+              <span class="sufixo">R$</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deduções -->
+        <p class="secao-titulo">Deduções</p>
+
+        <div class="row-3">
+          <div>
+            <label for="desc">Descontos</label>
+            <div class="input-box">
+              <span class="icone">&#8722;</span>
+              <input type="text" id="desc" placeholder="0,00" inputmode="numeric">
+              <span class="sufixo">R$</span>
+            </div>
+          </div>
+          <div>
+            <label for="inss">INSS <span class="hint">calculado auto</span></label>
+            <div class="input-box">
+              <span class="icone">&#128737;</span>
+              <input type="text" id="inss" placeholder="0,00" inputmode="numeric">
+              <span class="sufixo">R$</span>
+            </div>
+          </div>
+          <div>
+            <label for="fgts">FGTS <span class="hint">calculado auto</span></label>
+            <div class="input-box">
+              <span class="icone">&#127968;</span>
+              <input type="text" id="fgts" placeholder="0,00" inputmode="numeric">
+              <span class="sufixo">R$</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resultado -->
+        <p class="secao-titulo">Resultado</p>
+
+        <label for="liquido">Salário Líquido <span class="hint">calculado automaticamente</span></label>
+        <div class="input-box input-readonly">
+          <span class="icone" style="color:#0a7a3f">&#128181;</span>
+          <input type="text" id="liquido" value="0,00" readonly>
+          <span class="sufixo" style="color:#0a7a3f">R$</span>
+        </div>
+
+        <!-- Status -->
+        <label>Status <span class="obrig">*</span></label>
+        <div class="status-group">
+          <label class="status-opcao status-aberta">
+            <input type="radio" name="status" value="aberta" checked>
+            <span class="status-dot laranja"></span> Aberta
+          </label>
+          <label class="status-opcao status-paga">
+            <input type="radio" name="status" value="paga">
+            <span class="status-dot verde"></span> Paga
+          </label>
+        </div>
+
+        <button type="submit" class="btn-gerar">&#128196; Gerar Folha</button>
+
+      </form>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
