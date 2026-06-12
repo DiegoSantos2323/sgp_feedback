@@ -21,7 +21,7 @@ import br.com.implantacao.projetoturma.repository.FuncionariosRepository;
 
 @RestController
 @RequestMapping("/funcionarios")
-@CrossOrigin("*")
+@CrossOrigin(origins="*")
 public class FuncionariosController {
 
 	@Autowired

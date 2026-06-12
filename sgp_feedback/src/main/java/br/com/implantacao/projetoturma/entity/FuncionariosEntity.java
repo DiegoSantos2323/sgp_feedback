@@ -80,7 +80,7 @@ public class FuncionariosEntity implements Serializable{
 		@NotNull(message = "Campo Obrigatório!!!")
 		private float salarioBase;
 		
-		private boolean status;
+		private String status;
 		
 		//dados bancarios
 		@NotBlank(message = "Campo Obrigatório!!!")
@@ -94,8 +94,6 @@ public class FuncionariosEntity implements Serializable{
 		
 		@NotBlank(message = "Campo Obrigatório!!!")
 		private String tipoConta;
-		
-	
 	
 	public LocalDate getDataNascimento() {
 		return dataNascimento;
@@ -157,10 +155,11 @@ public class FuncionariosEntity implements Serializable{
 	public void setSalarioBase(float salarioBase) {
 		this.salarioBase = salarioBase;
 	}
-	public boolean isStatus() {
+
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public String getBanco() {
