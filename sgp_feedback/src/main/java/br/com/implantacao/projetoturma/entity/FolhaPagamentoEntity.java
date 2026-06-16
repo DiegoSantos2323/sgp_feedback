@@ -1,15 +1,13 @@
 	package br.com.implantacao.projetoturma.entity;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.List;
-
+import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -26,9 +24,9 @@ public class FolhaPagamentoEntity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToMany
+	@ManyToOne
 	@JoinColumn(name = "funcionariosID")
-	private List<FuncionariosEntity> funcionarios;
+	private FuncionariosEntity funcionarios;
 	
 	@NotNull(message = "Campo Obrigatório!!!")
 	private float salarioBase;
@@ -38,113 +36,138 @@ public class FolhaPagamentoEntity implements Serializable {
 	private String beneficios;//vale transporte , vale refeição etc..
 	private float desconto;
 	
-	@NotBlank(message = "Campo Obrigatório!!!")
-	private LocalDate competencia;
-	private float horaExtra;
-	private float valorHoraExtra;
-	private float bonus;
-	private float inss;
-	private float fgts;
-	private float salarioLiquido;
+	@NotNull(message = "Campo Obrigatório!!!")
+	private String competencia;
+	private BigDecimal horaExtra;
+	private BigDecimal valorHoraExtra;
+	private BigDecimal bonus;
+	private BigDecimal inss;
+	private BigDecimal fgts;
+	private BigDecimal salarioLiquido;
 	
 	@NotBlank(message = "Campo Obrigatório!!!")
 	private String status;
-	
-	
-	
-	
-	public List<FuncionariosEntity> getFuncionarios() {
-		return funcionarios;
-	}
-	public void setFuncionarios(List<FuncionariosEntity> funcionarios) {
-		this.funcionarios = funcionarios;
-	}
-	public LocalDate getCompetencia() {
-		return competencia;
-	}
-	public void setCompetencia(LocalDate competencia) {
-		this.competencia = competencia;
-	}
-	public float getHoraExtra() {
-		return horaExtra;
-	}
-	public void setHoraExtra(float horaExtra) {
-		this.horaExtra = horaExtra;
-	}
-	public float getValorHoraExtra() {
-		return valorHoraExtra;
-	}
-	public void setValorHoraExtra(float valorHoraExtra) {
-		this.valorHoraExtra = valorHoraExtra;
-	}
-	public float getBonus() {
-		return bonus;
-	}
-	public void setBonus(float bonus) {
-		this.bonus = bonus;
-	}
-	public float getInss() {
-		return inss;
-	}
-	public void setInss(float inss) {
-		this.inss = inss;
-	}
-	public float getFgts() {
-		return fgts;
-	}
-	public void setFgts(float fgts) {
-		this.fgts = fgts;
-	}
-	public float getSalarioLiquido() {
-		return salarioLiquido;
-	}
-	public void setSalarioLiquido(float salarioLiquido) {
-		this.salarioLiquido = salarioLiquido;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public FuncionariosEntity getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(FuncionariosEntity funcionarios) {
+		this.funcionarios = funcionarios;
+	}
+
 	public float getSalarioBase() {
 		return salarioBase;
 	}
+
 	public void setSalarioBase(float salarioBase) {
 		this.salarioBase = salarioBase;
 	}
+
 	public String getBanco() {
 		return banco;
 	}
+
 	public void setBanco(String banco) {
 		this.banco = banco;
 	}
+
 	public String getTipoConta() {
 		return tipoConta;
 	}
+
 	public void setTipoConta(String tipoConta) {
 		this.tipoConta = tipoConta;
 	}
+
 	public String getBeneficios() {
 		return beneficios;
 	}
+
 	public void setBeneficios(String beneficios) {
 		this.beneficios = beneficios;
 	}
+
 	public float getDesconto() {
 		return desconto;
 	}
+
 	public void setDesconto(float desconto) {
 		this.desconto = desconto;
 	}
-	
-	
+
+	public String getCompetencia() {
+		return competencia;
+	}
+
+	public void setCompetencia(String competencia) {
+		this.competencia = competencia;
+	}
+
+	public BigDecimal getHoraExtra() {
+		return horaExtra;
+	}
+
+	public void setHoraExtra(BigDecimal horaExtra) {
+		this.horaExtra = horaExtra;
+	}
+
+	public BigDecimal getValorHoraExtra() {
+		return valorHoraExtra;
+	}
+
+	public void setValorHoraExtra(BigDecimal valorHoraExtra) {
+		this.valorHoraExtra = valorHoraExtra;
+	}
+
+	public BigDecimal getBonus() {
+		return bonus;
+	}
+
+	public void setBonus(BigDecimal bonus) {
+		this.bonus = bonus;
+	}
+
+	public BigDecimal getInss() {
+		return inss;
+	}
+
+	public void setInss(BigDecimal inss) {
+		this.inss = inss;
+	}
+
+	public BigDecimal getFgts() {
+		return fgts;
+	}
+
+	public void setFgts(BigDecimal fgts) {
+		this.fgts = fgts;
+	}
+
+	public BigDecimal getSalarioLiquido() {
+		return salarioLiquido;
+	}
+
+	public void setSalarioLiquido(BigDecimal salarioLiquido) {
+		this.salarioLiquido = salarioLiquido;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	
 	
 }

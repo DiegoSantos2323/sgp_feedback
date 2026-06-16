@@ -6,7 +6,7 @@
     <title>Folha de Pagamento</title>
     <link rel="stylesheet" href="css/PrincipalFolhaPagamento.css">
 </head>
-<body>
+<body onload="CarregarFolhas()">
 
 <div class="container">
 
@@ -69,7 +69,7 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody id="tabelaFolhas">
 
                 <tr>
                     <td>João Silva</td>
@@ -104,6 +104,6 @@
     </div>
 
 </div>
-
+<script type="text/javascript" src="js/FolhaPrincipalPagamento.js"></script>
 </body>
 </html>

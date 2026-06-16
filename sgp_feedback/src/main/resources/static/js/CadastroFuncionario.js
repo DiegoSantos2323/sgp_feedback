@@ -1,4 +1,4 @@
-const API_LISTAR_TODOS = 'http://localhost:8014/funcionarios/listartodos';
+
 const API_LISTAR_POR_ID = 'http://localhost:8014/funcionarios/listarporid';
 const API_SALVAR = 'http://localhost:8014/funcionarios/salvar';
 const API_ATUALIZAR = 'http://localhost:8014/funcionarios/atualizar';
@@ -61,9 +61,26 @@ async function Cadastrar() {
     if (response.ok) {
         alert("Funcionário cadastrado com sucesso!");
         localStorage.removeItem("funcionario");
+		limparFormulario();
+		
     } else {
         const erro = await response.text();
         console.log(erro);
         alert("Erro ao cadastrar funcionário!");
     }
+}
+
+
+
+function limparFormulario(){
+	 document.getElementById('matricula').value="",
+	      document.getElementById('cargo').value="",
+	    document.getElementById('departamento').value="",
+	      document.getElementById('admissao').value="",
+	     parseFloat(document.getElementById('salario').value=""),
+	   document.querySelector('input[name="status"]:checked')?.value="",
+	      document.getElementById('banco').value="",
+	      document.getElementById('agencia').value="",
+	      document.getElementById('conta').value="",
+	     document.getElementById('tipoConta').value="";
 }

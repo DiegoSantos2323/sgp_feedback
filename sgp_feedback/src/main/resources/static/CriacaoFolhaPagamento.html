@@ -6,23 +6,24 @@
     <title>Nova Folha de Pagamento</title>
     <link rel="stylesheet" href="css/CriacaoFolhaPagamento.css">
 </head>
-<body>
+
+<body onload="carregarDadosSelect()">
 
 <div class="container">
 
     <div class="topo">
-
         <div class="titulo">
-          <button class="btn-voltar" onclick="history.back()">
-    ←
-</button>
+
+            <button class="btn-voltar" type="button" onclick="history.back()">
+                ←
+            </button>
 
             <div>
                 <h1>Folha de Pagamento</h1>
                 <p>Gerencie salários, benefícios e histórico de pagamentos</p>
             </div>
-        </div>
 
+        </div>
     </div>
 
     <div class="conteudo">
@@ -33,9 +34,9 @@
             <h3>Resumo</h3>
 
             <div class="item">
-    		<span>Salário Base</span>
-    		<strong id="resSalario">R$ 0,00</strong>
-			</div>
+                <span>Salário Base</span>
+                <strong id="resSalario">R$ 0,00</strong>
+            </div>
 
             <div class="item">
                 <span>Horas Extras</span>
@@ -60,7 +61,7 @@
             <hr>
 
             <div class="item liquido">
-                <span>Líquido</span>
+                <span>Salário Líquido</span>
                 <strong id="resLiquido">R$ 0,00</strong>
             </div>
 
@@ -78,54 +79,81 @@
             <h4>IDENTIFICAÇÃO</h4>
 
             <div class="grupo">
-                <label>Funcionário *</label>
+                <label for="selectFuncionario">Funcionário *</label>
 
-                <select>
-                    <option>Selecione o funcionário...</option>
+                <select id="selectFuncionario" onchange="buscarFuncionario()">
+                    <option value="">Selecione o funcionário...</option>
                 </select>
             </div>
 
             <div class="linha">
 
                 <div class="grupo">
-                    <label>Competência *</label>
+                    <label for="competencia">Competência *</label>
 
-                    <select>
-                        <option>Janeiro</option>
-                        <option>Fevereiro</option>
-                        <option>Março</option>
-                        <option>Abril</option>
-                        <option>Maio</option>
-                        <option>Junho</option>
-                        <option>Julho</option>
-                        <option>Agosto</option>
-                        <option>Setembro</option>
-                        <option>Outubro</option>
-                        <option>Novembro</option>
-                        <option>Dezembro</option>
+                    <select id="competencia">
+                        <option value="Janeiro">Janeiro</option>
+                        <option value="Fevereiro">Fevereiro</option>
+                        <option value="Março">Março</option>
+                        <option value="Abril">Abril</option>
+                        <option value="Maio">Maio</option>
+                        <option value="Junho">Junho</option>
+                        <option value="Julho">Julho</option>
+                        <option value="Agosto">Agosto</option>
+                        <option value="Setembro">Setembro</option>
+                        <option value="Outubro">Outubro</option>
+                        <option value="Novembro">Novembro</option>
+                        <option value="Dezembro">Dezembro</option>
                     </select>
                 </div>
 
                 <div class="grupo">
-                    <label>&nbsp;</label>
-
-                    <input type="number" value="2026">
+                    <label for="ano">Ano</label>
+                    <input type="number" id="ano" value="2026">
                 </div>
 
             </div>
 
+            <!-- STATUS -->
+            <h4>STATUS DA FOLHA</h4>
+
+            <div class="grupo">
+
+                <label for="status">Status *</label>
+
+                <select id="status">
+                    <option value="ABERTA" selected>ABERTA</option>
+                    <option value="PROCESSANDO">PROCESSANDO</option>
+                    <option value="PAGA">PAGA</option>
+                    <option value="CANCELADA">CANCELADA</option>
+                </select>
+
+            </div>
+
+            <!-- REMUNERAÇÃO -->
             <h4>REMUNERAÇÃO</h4>
 
             <div class="linha">
 
                 <div class="grupo">
-                    <label>Salário Base *</label>
-                    <input type="text" placeholder="R$ 0,00">
+                    <label for="salarioBase">Salário Base *</label>
+
+                    <input
+                        type="number"
+                        id="salarioBase"
+                        step="0.01"
+                        readonly>
                 </div>
 
                 <div class="grupo">
-                    <label>Bônus</label>
-                    <input type="text" placeholder="R$ 0,00">
+                    <label for="bonus">Bônus</label>
+
+                    <input
+                        type="number"
+                        id="bonus"
+                        step="0.01"
+                        value="0"
+                        oninput="calcularSalarioLiquido()">
                 </div>
 
             </div>
@@ -133,61 +161,104 @@
             <div class="linha">
 
                 <div class="grupo">
-                    <label>Horas Extras</label>
-                    <input type="text" placeholder="R$ 0,00">
+                    <label for="horasExtras">Horas Extras</label>
+
+                    <input
+                        type="number"
+                        id="horasExtras"
+                        value="0"
+                        oninput="calcularSalarioLiquido()">
                 </div>
 
                 <div class="grupo">
-                    <label>Valor Hora Extra</label>
-                    <input type="text" placeholder="R$ 0,00">
+                    <label for="valorHora">Valor Hora Extra</label>
+
+                    <input
+                        type="number"
+                        id="valorHora"
+                        step="0.01"
+                        value="0"
+                        oninput="calcularSalarioLiquido()">
                 </div>
 
             </div>
 
+            <!-- DEDUÇÕES -->
             <h4>DEDUÇÕES</h4>
 
             <div class="linha">
 
                 <div class="grupo">
-                    <label>Descontos</label>
-                    <input type="text" placeholder="R$ 0,00">
+                    <label for="descontos">Descontos</label>
+
+                    <input
+                        type="number"
+                        id="descontos"
+                        step="0.01"
+                        value="0"
+                        oninput="calcularSalarioLiquido()">
                 </div>
 
                 <div class="grupo">
-                    <label>INSS</label>
-                    <input type="text" placeholder="R$ 0,00">
+                    <label for="inss">INSS</label>
+
+                    <input
+                        type="number"
+                        id="inss"
+                        step="0.01"
+                        value="0"
+                        oninput="calcularSalarioLiquido()">
                 </div>
 
                 <div class="grupo">
-                    <label>FGTS</label>
-                    <input type="text" placeholder="R$ 0,00">
+                    <label for="fgts">FGTS</label>
+
+                    <input
+                        type="number"
+                        id="fgts"
+                        step="0.01"
+                        value="0">
                 </div>
 
             </div>
 
+            <!-- RESULTADO -->
             <h4>RESULTADO</h4>
 
             <div class="resultado">
-                <label>Salário Líquido</label>
-                <input type="text" value="R$ 0,00" readonly>
+
+                <label for="salarioLiquido">
+                    Salário Líquido
+                </label>
+
+                <input
+                    type="number"
+                    id="salarioLiquido"
+                    value="0.00"
+                    readonly>
+
             </div>
 
+            <!-- BOTÕES -->
             <div class="acoes">
-            
-             <button class="btn-secundario" onclick="history.back()">
-    Cancelar
-</button>
 
-                <button class="btn-salvar">
+                <a href="PrincipalFolhaPagamento.html"
+                   class="btn-secundario">
+                    Cancelar
+                </a>
+
+                <button
+                    type="button"
+                    class="btn-salvar"
+                    onclick="salvarFolha()">
                     Gerar Folha
                 </button>
             </div>
-
         </main>
-
     </div>
-
 </div>
+
+<script src="js/FolhaPagamento.js"></script>
 
 </body>
 </html>
