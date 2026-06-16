@@ -62,6 +62,7 @@ async function Cadastrar() {
         alert("Funcionário cadastrado com sucesso!");
         localStorage.removeItem("funcionario");
 		limparFormulario();
+		 window.location.href = "cadastro-etapa2.html";
 		
     } else {
         const erro = await response.text();
@@ -73,14 +74,20 @@ async function Cadastrar() {
 
 
 function limparFormulario(){
-	 document.getElementById('matricula').value="",
-	      document.getElementById('cargo').value="",
-	    document.getElementById('departamento').value="",
-	      document.getElementById('admissao').value="",
-	     parseFloat(document.getElementById('salario').value=""),
-	   document.querySelector('input[name="status"]:checked')?.value="",
-	      document.getElementById('banco').value="",
-	      document.getElementById('agencia').value="",
-	      document.getElementById('conta').value="",
-	     document.getElementById('tipoConta').value="";
+
+    document.getElementById('matricula').value = "";
+    document.getElementById('cargo').value = "";
+    document.getElementById('departamento').value = "";
+    document.getElementById('admissao').value = "";
+    document.getElementById('salario').value = "";
+    document.getElementById('banco').value = "";
+    document.getElementById('agencia').value = "";
+    document.getElementById('conta').value = "";
+    document.getElementById('tipoConta').value = "";
+
+    const status = document.querySelector('input[name="status"]:checked');
+
+    if(status){
+        status.checked = false;
+    }
 }
