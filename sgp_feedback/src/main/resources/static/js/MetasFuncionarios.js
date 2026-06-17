@@ -2,7 +2,7 @@ const API_LISTAR_FUNCIONARIOS = "http://localhost:8014/funcionarios/listartodos"
 
 async function carregarFuncionarios() {
 
-    try {
+
 
         const response =
             await fetch(API_LISTAR_FUNCIONARIOS);
@@ -31,10 +31,6 @@ async function carregarFuncionarios() {
             select.appendChild(option);
         });
 
-    } catch (erro) {
-        console.error(erro);
-        alert("Erro ao carregar funcionários.");
-    }
-}
+   }
 
 window.onload = carregarFuncionarios;ionarios;
