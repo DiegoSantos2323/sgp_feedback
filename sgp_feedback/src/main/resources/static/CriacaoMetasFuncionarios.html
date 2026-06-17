@@ -1,189 +1,299 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SGP - Nova Meta</title>
-  <link rel="stylesheet" href="css/MetasFuncionarios.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGP - Nova Meta</title>
+<link rel="stylesheet" href="css/MetasFuncionarios.css">
 </head>
-<body>
+
+<body onload="carregarFuncionarios()">
 
 <div class="page">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="header-esquerdo">
-      <a href="metas-lista.html" class="btn-icon">&#8592;</a>
-      <div>
-        <h1 class="header-titulo">Metas de Funcionários</h1>
-        <p class="header-sub">Cadastre e acompanhe o desempenho individual dos colaboradores</p>
-      </div>
+    <div class="header">
+        <div class="header-esquerdo">
+            <a href="metas-lista.html" class="btn-icon">&#8592;</a>
+            <div>
+                <h1 class="header-titulo">Metas de Funcionários</h1>
+                <p class="header-sub">
+                    Cadastre e acompanhe o desempenho individual dos colaboradores
+                </p>
+            </div>
+        </div>
+
+        <a href="metas-lista.html" class="btn-cancelar">
+            &#10005; Cancelar
+        </a>
     </div>
-    <a href="metas-lista.html" class="btn-cancelar">&#10005; Cancelar</a>
-  </div>
 
-  <div class="nova-layout">
+    <div class="nova-layout">
 
-    <!-- Painel lateral de resumo -->
-    <aside class="resumo-lateral">
-      <p class="resumo-lateral-titulo">Resumo da Meta</p>
+        <aside class="resumo-lateral">
 
-      <div class="resumo-item">
-        <p class="resumo-item-label">Funcionário</p>
-        <p class="resumo-item-valor">—</p>
-      </div>
-      <div class="resumo-item">
-        <p class="resumo-item-label">Tipo</p>
-        <p class="resumo-item-valor">—</p>
-      </div>
-      <div class="resumo-item">
-        <p class="resumo-item-label">Meta Prevista</p>
-        <p class="resumo-item-valor grande">—</p>
-      </div>
+            <p class="resumo-lateral-titulo">
+                Resumo da Meta
+            </p>
 
-      <div class="resumo-pct-bloco">
-        <p class="resumo-item-label" style="margin-bottom:8px">Percentual Atingido</p>
-        <p class="resumo-pct cor-azul">0%</p>
-        <div class="progress-bar" style="margin-top:8px">
-          <div class="progress-fill fill-azul" style="width:0%"></div>
-        </div>
-        <div class="progress-labels">
-          <span class="pct-label cor-azul">0%</span>
-          <span class="pct-meta">Meta: 100%</span>
-        </div>
-      </div>
-
-      <div class="aviso-regra">
-        &#9888; Apenas funcionários ativos podem receber metas.
-      </div>
-    </aside>
-
-    <!-- Formulário -->
-    <div class="card-form">
-      <h2 class="form-titulo">Nova Meta</h2>
-      <p class="form-sub">Defina uma meta individual para acompanhar o desempenho do colaborador.</p>
-
-      <form action="metas-lista.html">
-
-        <!-- Identificação -->
-        <p class="secao-titulo">Identificação</p>
-
-        <label for="funcionario">Funcionário <span class="obrig">*</span></label>
-        <div class="input-box">
-          <span class="icone">&#128100;</span>
-          <select id="funcionario" required>
-            <option value="" disabled selected>Selecione o funcionário...</option>
-            <option>Ana Paula Mendes</option>
-            <option>Carlos Eduardo Lima</option>
-            <option>Fernanda Costa</option>
-            <option>Roberto Alves</option>
-            <option>Marcos Oliveira</option>
-            <option>Juliana Soares</option>
-          </select>
-        </div>
-
-        <label for="descricao">Descrição da Meta <span class="obrig">*</span></label>
-        <div class="input-box textarea-box">
-          <span class="icone" style="margin-top:2px">&#127919;</span>
-          <textarea id="descricao" rows="3"
-            placeholder="Descreva a meta de forma clara e objetiva..."
-            required></textarea>
-        </div>
-
-        <!-- Tipo -->
-        <label>Tipo da Meta <span class="obrig">*</span></label>
-        <div class="tipo-grid">
-          <label class="tipo-opcao">
-            <input type="radio" name="tipo" value="Vendas">
-            <span class="tipo-icone">&#128722;</span>
-            <span class="tipo-label">Vendas</span>
-          </label>
-          <label class="tipo-opcao">
-            <input type="radio" name="tipo" value="Atendimento">
-            <span class="tipo-icone">&#127911;</span>
-            <span class="tipo-label">Atendimento</span>
-          </label>
-          <label class="tipo-opcao">
-            <input type="radio" name="tipo" value="Estoque">
-            <span class="tipo-icone">&#128230;</span>
-            <span class="tipo-label">Estoque</span>
-          </label>
-          <label class="tipo-opcao">
-            <input type="radio" name="tipo" value="Financeiro">
-            <span class="tipo-icone">&#128181;</span>
-            <span class="tipo-label">Financeiro</span>
-          </label>
-        </div>
-
-        <!-- Valores -->
-        <p class="secao-titulo">Valores</p>
-
-        <div class="row-2">
-          <div>
-            <label for="prevista">Meta Prevista <span class="obrig">*</span></label>
-            <div class="input-box">
-              <span class="icone">&#128200;</span>
-              <input type="text" id="prevista" placeholder="0,00"
-                inputmode="numeric" required>
-              <span class="sufixo">R$</span>
+            <div class="resumo-item">
+                <p class="resumo-item-label">Funcionário</p>
+                <p class="resumo-item-valor">—</p>
             </div>
-          </div>
-          <div>
-            <label for="obtido">Resultado Obtido
-              <span class="hint">opcional</span>
-            </label>
-            <div class="input-box">
-              <span class="icone">&#128202;</span>
-              <input type="text" id="obtido" placeholder="0,00" inputmode="numeric">
-              <span class="sufixo">R$</span>
+
+            <div class="resumo-item">
+                <p class="resumo-item-label">Tipo</p>
+                <p class="resumo-item-valor">—</p>
             </div>
-          </div>
+
+            <div class="resumo-item">
+                <p class="resumo-item-label">Meta Prevista</p>
+                <p class="resumo-item-valor grande">—</p>
+            </div>
+
+            <div class="resumo-pct-bloco">
+
+                <p class="resumo-item-label" style="margin-bottom:8px">
+                    Percentual Atingido
+                </p>
+
+                <p class="resumo-pct cor-azul">0%</p>
+
+                <div class="progress-bar" style="margin-top:8px">
+                    <div class="progress-fill fill-azul" style="width:0%"></div>
+                </div>
+
+                <div class="progress-labels">
+                    <span class="pct-label cor-azul">0%</span>
+                    <span class="pct-meta">Meta: 100%</span>
+                </div>
+
+            </div>
+
+            <div class="aviso-regra">
+                &#9888; Apenas funcionários ativos podem receber metas.
+            </div>
+
+        </aside>
+
+        <div class="card-form">
+
+            <h2 class="form-titulo">Nova Meta</h2>
+
+            <p class="form-sub">
+                Defina uma meta individual para acompanhar o desempenho do colaborador.
+            </p>
+
+            <form>
+
+                <p class="secao-titulo">Identificação</p>
+
+                <label for="funcionario">
+                    Funcionário <span class="obrig">*</span>
+                </label>
+
+                <div class="input-box">
+                    <span class="icone">&#128100;</span>
+
+                    <select id="funcionario" required>
+                        <option value="">
+                            Selecione o funcionário...
+                        </option>
+                    </select>
+                </div>
+
+                <label for="titulo">
+                    Título da Meta <span class="obrig">*</span>
+                </label>
+
+                <div class="input-box">
+                    <span class="icone">&#127919;</span>
+
+                    <input
+                        type="text"
+                        id="titulo"
+                        placeholder="Ex: Aumentar vendas em 10%"
+                        required>
+                </div>
+
+                <label for="descricao">
+                    Descrição da Meta <span class="obrig">*</span>
+                </label>
+
+                <div class="input-box textarea-box">
+
+                    <span class="icone" style="margin-top:2px">
+                        &#127919;
+                    </span>
+
+                    <textarea
+                        id="descricao"
+                        rows="3"
+                        placeholder="Descreva a meta de forma clara e objetiva..."
+                        required></textarea>
+
+                </div>
+
+                <label>
+                    Tipo da Meta <span class="obrig">*</span>
+                </label>
+
+                <div class="tipo-grid">
+
+                    <label class="tipo-opcao">
+                        <input type="radio" name="tipo" value="Vendas">
+                        <span class="tipo-icone">&#128722;</span>
+                        <span class="tipo-label">Vendas</span>
+                    </label>
+
+                    <label class="tipo-opcao">
+                        <input type="radio" name="tipo" value="Atendimento">
+                        <span class="tipo-icone">&#127911;</span>
+                        <span class="tipo-label">Atendimento</span>
+                    </label>
+
+                    <label class="tipo-opcao">
+                        <input type="radio" name="tipo" value="Estoque">
+                        <span class="tipo-icone">&#128230;</span>
+                        <span class="tipo-label">Estoque</span>
+                    </label>
+
+                    <label class="tipo-opcao">
+                        <input type="radio" name="tipo" value="Financeiro">
+                        <span class="tipo-icone">&#128181;</span>
+                        <span class="tipo-label">Financeiro</span>
+                    </label>
+
+                </div>
+
+                <p class="secao-titulo">Valores</p>
+
+                <div class="row-2">
+
+                    <div>
+
+                        <label for="prevista">
+                            Meta Prevista <span class="obrig">*</span>
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="icone">&#128200;</span>
+
+                            <input
+                                type="number"
+                                id="prevista"
+                                placeholder="0.00"
+                                step="0.01"
+                                required>
+
+                            <span class="sufixo">R$</span>
+
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <label for="obtido">
+                            Resultado Obtido
+                            <span class="hint">opcional</span>
+                        </label>
+
+                        <div class="input-box">
+
+                            <span class="icone">&#128202;</span>
+
+                            <input
+                                type="number"
+                                id="obtido"
+                                placeholder="0.00"
+                                step="0.01">
+
+                            <span class="sufixo">R$</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <p class="secao-titulo">Período</p>
+
+                <div class="row-2">
+
+                    <div>
+
+                        <label for="inicio">
+                            Data Início <span class="obrig">*</span>
+                        </label>
+
+                        <div class="input-box">
+                            <span class="icone">&#128197;</span>
+                            <input type="date" id="inicio" required>
+                        </div>
+
+                    </div>
+
+                    <div>
+
+                        <label for="fim">
+                            Data Prazo <span class="obrig">*</span>
+                        </label>
+
+                        <div class="input-box">
+                            <span class="icone">&#128197;</span>
+                            <input type="date" id="fim" required>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <p class="secao-titulo">Status</p>
+
+                <div class="status-group">
+
+                    <label class="status-opcao status-andamento-op ativo">
+                        <input
+                            type="radio"
+                            name="status"
+                            value="Em Andamento"
+                            checked>
+
+                        <span class="status-dot cor-azul-dot"></span>
+                        Em Andamento
+                    </label>
+
+                    <label class="status-opcao status-concluida-op">
+                        <input
+                            type="radio"
+                            name="status"
+                            value="Concluída">
+
+                        <span class="status-dot cor-verde-dot"></span>
+                        Concluída
+                    </label>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-cadastrar"
+                    onclick="CriarMeta()">
+
+                    &#127919; Cadastrar Meta
+
+                </button>
+
+            </form>
+
         </div>
 
-        <!-- Período -->
-        <p class="secao-titulo">Período</p>
-
-        <div class="row-2">
-          <div>
-            <label for="inicio">Data Início <span class="obrig">*</span></label>
-            <div class="input-box">
-              <span class="icone">&#128197;</span>
-              <input type="date" id="inicio" required>
-            </div>
-          </div>
-          <div>
-            <label for="fim">Data Fim <span class="obrig">*</span></label>
-            <div class="input-box">
-              <span class="icone">&#128197;</span>
-              <input type="date" id="fim" required>
-            </div>
-          </div>
-        </div>
-
-        <!-- Status -->
-        <p class="secao-titulo">Status</p>
-
-        <div class="status-group">
-          <label class="status-opcao status-andamento-op ativo">
-            <input type="radio" name="status" value="Em Andamento" checked>
-            <span class="status-dot cor-azul-dot"></span>
-            Em Andamento
-          </label>
-          <label class="status-opcao status-concluida-op">
-            <input type="radio" name="status" value="Concluída">
-            <span class="status-dot cor-verde-dot"></span>
-            Concluída
-          </label>
-        </div>
-
-        <button type="submit" class="btn-cadastrar">
-          &#127919; Cadastrar Meta
-        </button>
-
-      </form>
     </div>
-  </div>
+
 </div>
+
+<script src="js/MetasFuncionarios.js"></script>
 
 </body>
 </html>
