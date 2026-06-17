@@ -1,3 +1,4 @@
+
 const API_LISTAR_FUNCIONARIOS = "http://localhost:8014/funcionarios/listartodos";
 
 async function carregarFuncionarios() {
@@ -34,3 +35,4 @@ async function carregarFuncionarios() {
    }
 
 window.onload = carregarFuncionarios;ionarios;
+

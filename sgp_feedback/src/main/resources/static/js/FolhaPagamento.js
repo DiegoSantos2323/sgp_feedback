@@ -5,8 +5,7 @@ const API_LISTAR_POR_ID = 'http://localhost:8014/funcionarios/listarporid/';
 async function salvarFolha() {
 
 	const funcionarioId =document.getElementById('selectFuncionario').value;
-	
-		
+
     const folha = {
         salarioBase: document.getElementById("salarioBase").value,
         bonus: document.getElementById("bonus").value,
@@ -17,7 +16,11 @@ async function salvarFolha() {
         fgts: document.getElementById("fgts").value,
         competencia: document.getElementById("competencia").value,
 		status: document.getElementById("status").value,
-		salarioLiquido: parseFloat(document.getElementById("salarioLiquido").value)
+		salarioLiquido: parseFloat(document.getElementById("salarioLiquido").value),
+		
+		funcionarios: {   id: parseInt(funcionarioId)
+		     }
+	
     };
 	console.log(folha);
     const response = await fetch(API_SALVAR, {
