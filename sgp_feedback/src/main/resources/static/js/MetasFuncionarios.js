@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const API_SALVAR = 'http://localhost:8014/meta/salvar';
 const API_LISTAR_FUNCIONARIOS = 'http://localhost:8014/funcionarios/listartodos';
 
