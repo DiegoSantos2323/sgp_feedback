@@ -1,14 +1,12 @@
-
 const API_LISTAR_POR_ID = 'http://localhost:8014/funcionarios/listarporid';
 const API_SALVAR = 'http://localhost:8014/funcionarios/salvar';
 const API_ATUALIZAR = 'http://localhost:8014/funcionarios/atualizar';
-const API_BUSCAR_POR_NOME = 'http://localhost:8014/funcionarios/buscarnome';
-const API_BUSCAR_POR_CPF = 'http://localhost:8014/funcionarios/buscacpf';
-const API_BUSCAR_POR_MATRICULA = 'http://localhost:8014/funcionarios/buscarmatricula';
+
+const API_GERAR_MATRICULA = 'http://localhost:8014/funcionarios/gerarmatricula';
 
 let editandoId = null;
 
-function salvarEtapa1() {
+async function salvarEtapa1() {
 
     const funcionario = {
         nome: document.getElementById('nome').value,
@@ -27,7 +25,39 @@ function salvarEtapa1() {
 
     localStorage.setItem("funcionario", JSON.stringify(funcionario));
     window.location.href = "cadastro-etapa2.html";
+	
+	//valida se cpf ja existe
+		const existe = await cpfJaExiste(corredor.cpf);
+
+		  if (existe) {
+		      alert("CPF já cadastrado!");
+		      return;
+		  }
+
+		const response = await fetch(API_SALVAR, {
+		    method: 'POST',
+		    headers: {
+		        'Content-Type': 'application/json'
+		    },
+		    body: JSON.stringify(corredor)
+		});
+		if (!response.ok) {
+		    alert("Erro ao cadastrar corredor!");
+		    return;
+		}
 }
+
+window.onload = async function () {
+
+    const campoMatricula = document.getElementById('matricula');
+
+    if (campoMatricula) {
+        const response = await fetch(API_GERAR_MATRICULA);
+        const matricula = await response.text();
+
+        campoMatricula.value = matricula;
+    }
+};
 
 async function Cadastrar() {
 
@@ -45,11 +75,12 @@ async function Cadastrar() {
         conta: document.getElementById('conta').value,
         tipoConta: document.getElementById('tipoConta').value
     };
-    // junta as duas etapas
+
     const funcionarioCompleto = {
         ...etapa1,
         ...etapa2
     };
+
     const response = await fetch(API_SALVAR, {
         method: 'POST',
         headers: {
@@ -61,9 +92,8 @@ async function Cadastrar() {
     if (response.ok) {
         alert("Funcionário cadastrado com sucesso!");
         localStorage.removeItem("funcionario");
-		limparFormulario();
-		 window.location.href = "cadastro-etapa2.html";
-		
+        limparFormulario();
+        window.location.href = "cadastro-etapa2.html";
     } else {
         const erro = await response.text();
         console.log(erro);
@@ -71,7 +101,17 @@ async function Cadastrar() {
     }
 }
 
+async function buscarCep(cep){
 
+    const response = await fetch(`https://viacep.com.br/ws/${cep.value}/json/`);
+    const dados = await response.json();
+
+    document.getElementById('endereco').value = dados.logradouro;
+    document.getElementById('cidade').value = dados.localidade;
+    document.getElementById('estado').value = dados.uf;
+
+    console.log("deu certo");
+}
 
 function limparFormulario(){
 

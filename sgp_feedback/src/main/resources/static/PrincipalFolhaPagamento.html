@@ -16,9 +16,9 @@
             <p>Gerencie as folhas de pagamento dos funcionários</p>
         </div>
 
-<button class="btn-primary" onclick="window.location.href='CriacaoFolhaPagamento.html'">
-    + Nova Folha
-</button>
+        <button class="btn-primary" onclick="window.location.href='CriacaoFolhaPagamento.html'">
+            + Nova Folha
+        </button>
     </div>
 
     <div class="cards">
@@ -52,7 +52,7 @@
 
             <input
                 type="text"
-                placeholder="Buscar funcionário..."
+                placeholder="Buscar funcionário..." oninput="buscarMatricula(this.value); buscarCpf(this.value);buscarNome(this.value)"
             >
         </div>
 
@@ -60,6 +60,8 @@
 
             <thead>
                 <tr>
+                    <th>Matrícula</th>
+                    <th>CPF</th>
                     <th>Funcionário</th>
                     <th>Competência</th>
                     <th>Salário Base</th>
@@ -72,6 +74,8 @@
             <tbody id="tabelaFolhas">
 
                 <tr>
+                    <td>123456</td>
+                    <td>123.456.789-00</td>
                     <td>João Silva</td>
                     <td>05/2025</td>
                     <td>R$ 5.000</td>
@@ -85,6 +89,8 @@
                 </tr>
 
                 <tr>
+                    <td>654321</td>
+                    <td>987.654.321-00</td>
                     <td>Maria Santos</td>
                     <td>05/2025</td>
                     <td>R$ 6.500</td>
@@ -104,6 +110,7 @@
     </div>
 
 </div>
+
 <script type="text/javascript" src="js/FolhaPrincipalPagamento.js"></script>
 </body>
 </html>

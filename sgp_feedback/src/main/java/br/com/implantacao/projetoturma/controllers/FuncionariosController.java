@@ -2,6 +2,7 @@ package br.com.implantacao.projetoturma.controllers;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.implantacao.projetoturma.entity.FuncionariosEntity;
 import br.com.implantacao.projetoturma.repository.FuncionariosRepository;
+
 
 @RestController
 @RequestMapping("/funcionarios")
@@ -85,10 +87,21 @@ public class FuncionariosController {
 	}//buscar por matricula
 	
 	
+	@GetMapping("/gerarmatricula")
+	public String gerarMatricula() {
+
+	    String matricula;
+
+	    do {
+	        matricula = String.valueOf(
+	            ThreadLocalRandom.current().nextInt(100000, 999999)
+	        );
+	    } while (repository.existsByMatricula(matricula));
+
+	    return matricula;
+	}
 	
-	
-	
-	
-	
-	
+
 }
+	
+

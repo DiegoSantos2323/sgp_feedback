@@ -9,6 +9,7 @@ import br.com.implantacao.projetoturma.entity.FuncionariosEntity;
 @Repository
 public interface FuncionariosRepository extends JpaRepository<FuncionariosEntity, Long>{
 
+	boolean existsByMatricula(String matricula);
 	List<FuncionariosEntity> findByNomeContainingIgnoreCase(String nome);
 	List<FuncionariosEntity> findByCpfContainingIgnoreCase(String cpf);
 	List<FuncionariosEntity> findByMatriculaContainingIgnoreCase(String matricula);
