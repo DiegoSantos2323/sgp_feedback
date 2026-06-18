@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação de Desempenho</title>
+    <link rel="stylesheet" href="css/AvaliacaoDeDesempenho.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="page-body">
+
+    <div id="dashboard-container">
+        
+        <header id="main-header">
+            <div id="header-title-container">
+              <a href="Principal.html" id="btn-back" class="btn-icon">
+    			<i class="fa-solid fa-chevron-left"></i>
+				</a>
+                <div>
+                    <h1 id="page-title">Avaliação de Desempenho</h1>
+                    <p id="page-subtitle">Registre feedbacks e acompanhe a evolução dos colaboradores</p>
+                </div>
+            </div>
+            <button id="btn-new-evaluation" class="btn-primary"><i class="fa-solid fa-plus"></i> Nova Avaliação</button>
+        </header>
+
+        <section id="metrics-overview">
+            <div id="card-total-evaluations" class="metric-card">
+                <span class="metric-label">Total de Avaliações</span>
+                <span class="metric-value">3</span>
+            </div>
+            <div id="card-average-score" class="metric-card card-highlight-yellow">
+                <span class="metric-label">Média de Nota</span>
+                <span class="metric-value">4.0 / 5</span>
+            </div>
+            <div id="card-average-achievement" class="metric-card card-highlight-blue">
+                <span class="metric-label">Média de Atingimento</span>
+                <span class="metric-value">85%</span>
+            </div>
+            <div id="card-general-classification" class="metric-card card-highlight-purple">
+                <span class="metric-label">Classificação Geral</span>
+                <span class="metric-value text-purple">Bom</span>
+            </div>
+        </section>
+
+        <section id="search-section">
+            <div id="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass" id="search-icon"></i>
+                <input type="text" id="input-search" placeholder="Buscar por funcionário ou meta...">
+            </div>
+        </section>
+
+        <section id="classification-legend-container">
+            <span id="legend-title">Classificação:</span>
+            <div id="legend-badges">
+                <span class="badge badge-excelente">>100% Excelente</span>
+                <span class="badge badge-muito-bom">90-99% Muito Bom</span>
+                <span class="badge badge-bom">70-89% Bom</span>
+                <span class="badge badge-regular">50-69% Regular</span>
+                <span class="badge badge-melhorias">&lt;50% Necessita Melhorias</span>
+            </div>
+        </section>
+
+        <main id="collaborators-list">
+            
+            <article id="card-collaborator-ana" class="collaborator-card border-bom">
+                <div class="card-header">
+                    <div class="collaborator-info">
+                        <div id="avatar-ana" class="avatar">AP</div>
+                        <div>
+                            <h3 class="collaborator-name">Ana Paula Mendes</h3>
+                            <p class="collaborator-goal">Aumentar volume de vendas mensais</p>
+                        </div>
+                    </div>
+                    <div class="rating-container">
+                        <div class="stars">
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-regular fa-star gray"></i>
+                        </div>
+                        <span class="status-badge status-bom">Bom</span>
+                    </div>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-bar-container">
+                        <div id="progress-ana" class="progress-bar bg-bom" style="width: 86%;"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span class="progress-percentage text-bom">86%</span>
+                        <span class="progress-target">Meta: 100%</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="metrics-details">
+                        <div class="metric-data">
+                            <span class="data-label">Meta Prevista</span>
+                            <span class="data-value">R$ 50.000,00</span>
+                        </div>
+                        <div class="metric-data">
+                            <span class="data-label">Resultado</span>
+                            <span class="data-value">R$ 43.000,00</span>
+                        </div>
+                        <div class="metric-data">
+                            <span class="data-label">Data</span>
+                            <span class="data-value">15/06/2026</span>
+                        </div>
+                    </div>
+                    <a href="#" id="link-details-ana" class="btn-details">Ver detalhes <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+            </article>
+
+            <article id="card-collaborator-carlos" class="collaborator-card border-excelente">
+                <div class="card-header">
+                    <div class="collaborator-info">
+                        <div id="avatar-carlos" class="avatar">CE</div>
+                        <div>
+                            <h3 class="collaborator-name">Carlos Eduardo Lima</h3>
+                            <p class="collaborator-goal">Reduzir tempo médio de atendimento</p>
+                        </div>
+                    </div>
+                    <div class="rating-container">
+                        <div class="stars">
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-solid fa-star gold"></i>
+                        </div>
+                        <span class="status-badge status-excelente">Excelente</span>
+                    </div>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-bar-container">
+                        <div id="progress-carlos" class="progress-bar bg-excelente" style="width: 100%;"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span class="progress-percentage text-excelente">100%</span>
+                        <span class="progress-target">Meta: 100%</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="metrics-details">
+                        <div class="metric-data">
+                            <span class="data-label">Meta Prevista</span>
+                            <span class="data-value">R$ 200,00</span>
+                        </div>
+                        <div class="metric-data">
+                            <span class="data-label">Resultado</span>
+                            <span class="data-value">R$ 200,00</span>
+                        </div>
+                        <div class="metric-data">
+                            <span class="data-label">Data</span>
+                            <span class="data-value">31/05/2026</span>
+                        </div>
+                    </div>
+                    <a href="#" id="link-details-carlos" class="btn-details">Ver detalhes <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+            </article>
+
+            <article id="card-collaborator-fernanda" class="collaborator-card border-regular">
+                <div class="card-header">
+                    <div class="collaborator-info">
+                        <div id="avatar-fernanda" class="avatar">FC</div>
+                        <div>
+                            <h3 class="collaborator-name">Fernanda Costa</h3>
+                            <p class="collaborator-goal">Controle de estoque — reduzir perdas</p>
+                        </div>
+                    </div>
+                    <div class="rating-container">
+                        <div class="stars">
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-solid fa-star gold"></i>
+                            <i class="fa-regular fa-star gray"></i>
+                            <i class="fa-regular fa-star gray"></i>
+                        </div>
+                        <span class="status-badge status-regular">Regular</span>
+                    </div>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-bar-container">
+                        <div id="progress-fernanda" class="progress-bar bg-regular" style="width: 68%;"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span class="progress-percentage text-regular">68%</span>
+                        <span class="progress-target">Meta: 100%</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="metrics-details">
+                        <div class="metric-data">
+                            <span class="data-label">Meta Prevista</span>
+                            <span class="data-value">—</span>
+                        </div>
+                        <div class="metric-data">
+                            <span class="data-label">Resultado</span>
+                            <span class="data-value">—</span>
+                        </div>
+                        <div class="metric-data">
+                            <span class="data-label">Data</span>
+                            <span class="data-value">—</span>
+                        </div>
+                    </div>
+                    <a href="#" id="link-details-fernanda" class="btn-details">Ver detalhes <i class="fa-solid fa-arrow-right-long"></i></a>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+</body>
+</html>

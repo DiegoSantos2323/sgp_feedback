@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGP - Nova Avaliação</title>
+  <link rel="stylesheet" href="css/CriarAvaliacaoDeDesempenho.css">
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── Header ── -->
+  <div class="header">
+    <div class="header-esquerdo">
+      <a href="avaliacao-lista.html" class="btn-icon">&#8592;</a>
+      <div>
+        <h1 class="header-titulo">Avaliação de Desempenho</h1>
+        <p class="header-sub">Registre feedbacks e acompanhe a evolução dos colaboradores</p>
+      </div>
+    </div>
+    <a href="avaliacao-lista.html" class="btn-cancelar">&#10005; Cancelar</a>
+  </div>
+
+  <!-- ── Layout principal ── -->
+  <div class="nova-layout">
+
+    <!-- ── Painel lateral ── -->
+    <aside class="painel-lateral">
+
+      <p class="painel-titulo">Pré-visualização</p>
+
+      <div class="painel-item">
+        <p class="painel-label">Funcionário</p>
+        <p class="painel-valor">—</p>
+      </div>
+
+      <div class="painel-item">
+        <p class="painel-label">Nota</p>
+        <div class="estrelas">
+          <span class="star vazia">&#9733;</span>
+          <span class="star vazia">&#9733;</span>
+          <span class="star vazia">&#9733;</span>
+          <span class="star vazia">&#9733;</span>
+          <span class="star vazia">&#9733;</span>
+        </div>
+      </div>
+
+      <div class="painel-item">
+        <p class="painel-label">Percentual Atingido</p>
+        <p class="painel-pct">—</p>
+      </div>
+
+      <!-- Tabela de classificação -->
+      <div class="tabela-classif">
+        <p class="tabela-titulo">Tabela de Classificação</p>
+
+        <div class="classif-linha">
+          <span class="classif-range">&gt;100%</span>
+          <span class="badge badge-excelente">Excelente</span>
+        </div>
+        <div class="classif-linha">
+          <span class="classif-range">90–99%</span>
+          <span class="badge badge-muitobom">Muito Bom</span>
+        </div>
+        <div class="classif-linha">
+          <span class="classif-range">70–89%</span>
+          <span class="badge badge-bom">Bom</span>
+        </div>
+        <div class="classif-linha">
+          <span class="classif-range">50–69%</span>
+          <span class="badge badge-regular">Regular</span>
+        </div>
+        <div class="classif-linha">
+          <span class="classif-range">&lt;50%</span>
+          <span class="badge badge-melhoria">Necessita Melhorias</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── Formulário ── -->
+    <div class="card-form">
+
+      <h2 class="form-titulo">Nova Avaliação</h2>
+      <p class="form-sub">Registre o feedback e avalie o desempenho do colaborador.</p>
+
+      <form action="avaliacao-lista.html">
+
+        <!-- Identificação -->
+        <p class="secao-titulo">Identificação</p>
+
+        <label for="funcionario">
+          Funcionário <span class="obrig">*</span>
+        </label>
+        <div class="input-box">
+          <span class="icone">&#128100;</span>
+          <select id="funcionario" required>
+            <option value="" disabled selected>Selecione o funcionário...</option>
+            <option>Ana Paula Mendes</option>
+            <option>Carlos Eduardo Lima</option>
+            <option>Fernanda Costa</option>
+            <option>Roberto Alves</option>
+            <option>Marcos Oliveira</option>
+            <option>Juliana Soares</option>
+          </select>
+        </div>
+
+        <label for="meta">
+          Meta Avaliada <span class="obrig">*</span>
+        </label>
+        <div class="input-box">
+          <span class="icone">&#127919;</span>
+          <select id="meta" required>
+            <option value="" disabled selected>Selecione um funcionário primeiro</option>
+            <option>Aumentar volume de vendas mensais</option>
+            <option>Reduzir tempo médio de atendimento</option>
+            <option>Controle de estoque — reduzir perdas</option>
+            <option>Reduzir custos operacionais do setor</option>
+          </select>
+        </div>
+
+        <label for="data">
+          Data da Avaliação <span class="obrig">*</span>
+        </label>
+        <div class="input-box">
+          <span class="icone">&#128197;</span>
+          <input type="date" id="data" required>
+        </div>
+
+        <!-- Resultados -->
+        <p class="secao-titulo">Resultados</p>
+
+        <label for="resultado">
+          Resultado Obtido <span class="obrig">*</span>
+        </label>
+        <div class="input-box">
+          <span class="icone">&#128200;</span>
+          <input type="text" id="resultado"
+            placeholder="0,00" inputmode="numeric" required>
+          <span class="sufixo">R$</span>
+        </div>
+
+        <label for="percentual">
+          Percentual Atingido
+          <span class="hint">calculado automaticamente</span>
+        </label>
+        <div class="input-box input-readonly">
+          <span class="icone icone-verde">&#128202;</span>
+          <input type="text" id="percentual" value="—" readonly>
+        </div>
+
+        <!-- Nota -->
+        <p class="secao-titulo">Nota de Desempenho</p>
+
+        <label>
+          Nota (1 a 5) <span class="obrig">*</span>
+        </label>
+        <div class="nota-box">
+          <div class="estrelas-grandes">
+            <span class="star-g preenchida">&#9733;</span>
+            <span class="star-g preenchida">&#9733;</span>
+            <span class="star-g preenchida">&#9733;</span>
+            <span class="star-g preenchida">&#9733;</span>
+            <span class="star-g vazia">&#9733;</span>
+          </div>
+          <span class="nota-texto">4/5</span>
+        </div>
+
+        <!-- Feedback -->
+        <p class="secao-titulo">Feedback</p>
+
+        <label for="positivos">
+          Comentários Positivos
+          <span class="hint">opcional</span>
+        </label>
+        <div class="input-box textarea-box">
+          <span class="icone icone-verde top">&#128172;</span>
+          <textarea id="positivos" rows="3"
+            placeholder="Descreva os pontos fortes e conquistas do colaborador..."></textarea>
+        </div>
+
+        <label for="melhoria">
+          Pontos de Melhoria
+          <span class="hint">opcional</span>
+        </label>
+        <div class="input-box textarea-box">
+          <span class="icone icone-laranja top">&#9888;</span>
+          <textarea id="melhoria" rows="3"
+            placeholder="Indique áreas que precisam de desenvolvimento..."></textarea>
+        </div>
+
+        <label for="acao">
+          Plano de Ação
+          <span class="hint">opcional</span>
+        </label>
+        <div class="input-box textarea-box">
+          <span class="icone icone-azul top">&#128161;</span>
+          <textarea id="acao" rows="3"
+            placeholder="Descreva as ações concretas para evolução..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-registrar">
+          &#128203;&nbsp; Registrar Avaliação
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
