@@ -123,33 +123,35 @@
       </div>
 
       <!-- Endereço -->
-      <p class="secao-titulo">Endereço</p>
-
-      <label for="endereco">Endereço <span class="obrig">*</span></label>
-      <div class="input-box">
-        <span class="icone">📍</span>
-        <input type="text" id="endereco" placeholder="Rua, número, complemento" >
-      </div>
-
-      <label for="cep">CEP <span class="obrig">*</span></label>
+      
+       <label for="cep">CEP <span class="obrig">*</span></label>
       <div class="input-box">
         <span class="icone">📍</span>
         <input type="text" id="cep" placeholder="00000-000" onblur="buscarCep(this);">
       </div>
+      
+      
+      <p class="secao-titulo">Endereço</p>
+      <label for="endereco">Endereço <span class="obrig" >*</span></label >
+      <div class="input-box">
+        <span class="icone">📍</span>
+        <input type="text" id="endereco" placeholder="Rua, número, complemento" readonly>
+      </div>
 
+     
       <div class="row-2">
         <div style="flex: 2">
           <label for="cidade">Cidade <span class="obrig">*</span></label>
           <div class="input-box">
             <span class="icone">🏙</span>
-            <input type="text" id="cidade" placeholder="Cidade" >
+            <input type="text" id="cidade" placeholder="Cidade" readonly>
           </div>
         </div>
         <div style="flex: 1">
           <label for="estado">Estado <span class="obrig">*</span></label>
           <div class="input-box">
             <span class="icone">📍</span>
-            <input type="text" id="estado" placeholder="UF" maxlength="2" >
+            <input type="text" id="estado" placeholder="UF" maxlength="2" readonly>
           </div>
         </div>
       </div>
