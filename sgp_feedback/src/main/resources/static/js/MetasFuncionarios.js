@@ -1,5 +1,5 @@
 const API_LISTAR_FUNCIONARIOS ="http://localhost:8014/funcionarios/listartodos";
-const API_SALVAR_META = "http://localhost:8014/metas/salvar";
+const API_SALVAR_META = "http://localhost:8014/meta/salvar";
 
 //LISTAR FUNCIONARIOS
 async function carregarFuncionarios() {
@@ -47,40 +47,82 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function salvarMeta(event) {
+
     event.preventDefault();
 
+    const funcionario = document.getElementById("funcionario").value;
+
+    if (funcionario === "") {
+        alert("Selecione um funcionário.");
+        return;
+    }
+
+    const tipo = document.querySelector("input[name='tipo']:checked");
+
+    if (tipo == null) {
+        alert("Selecione o tipo da meta.");
+        return;
+    }
+
+    const status = document.querySelector("input[name='status']:checked");
+
+    if (status == null) {
+        alert("Selecione o status da meta.");
+        return;
+    }
+
     const meta = {
+
         descricao: document.getElementById("descricao").value,
 
         dataInicio: document.getElementById("inicio").value,
+
         dataPrazo: document.getElementById("fim").value,
 
-        status: document.querySelector("input[name='status']:checked")?.value,
+        status: status.value,
 
-        resultadoObtido: parseFloat(document.getElementById("obtido").value || 0),
-        resultadoPrevisto: parseFloat(document.getElementById("prevista").value || 0),
+        resultadoObtido: parseFloat(
+            document.getElementById("obtido").value.replace(",", ".")
+        ) || 0,
 
-        tipoMeta: document.querySelector("input[name='tipo']:checked")?.value,
+        resultadoPrevisto: parseFloat(
+            document.getElementById("prevista").value.replace(",", ".")
+        ) || 0,
+
+        tipoMeta: tipo.value,
 
         funcionarios: {
-            id: Number(document.getElementById("funcionario").value)
+            id: Number(funcionario)
         }
+
     };
 
     const response = await fetch(API_SALVAR_META, {
+
         method: "POST",
+
         headers: {
             "Content-Type": "application/json"
         },
+
         body: JSON.stringify(meta)
+
     });
 
     if (response.ok) {
-        alert("Meta salva com sucesso!");
+
+        alert("Meta cadastrada com sucesso!");
+
         window.location.href = "MetasFuncionariosPrincipal.html";
+
     } else {
+
         const erro = await response.text();
+
+        alert("Erro ao salvar a meta.");
+
         console.log(erro);
-        alert("Erro ao salvar meta");
+
     }
+
 }
