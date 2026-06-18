@@ -32,6 +32,7 @@ public class FuncionariosEntity implements Serializable{
 		
 		@NotBlank(message = "Campo Obrigatório!!!")
 		@CPF
+		@Column(unique = true)
 		private String cpf;
 		
 		@NotNull(message = "Campo Obrigatório!!!")

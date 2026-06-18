@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Metas")
@@ -23,19 +24,18 @@ public class MetaEntity implements Serializable {
     @NotBlank(message = "Campo Obrigatório!!!")
     private String descricao;//Detalhamento do que precisa ser feito.
     
-    @NotBlank(message = "Campo Obrigatório!!!")
+    @NotNull(message = "Campo Obrigatório!!!")
     private LocalDate dataInicio;
     
-    @NotBlank(message = "Campo Obrigatório!!!")
+    @NotNull(message = "Campo Obrigatório!!!")
     private LocalDate dataPrazo;
     
     @NotBlank(message = "Campo Obrigatório!!!")
     private String status; // Pendente, Em Andamento, Concluída
     
+    private float resultadoObtido;
     
     private float resultadoPrevisto;//não é obrigatório
-    
-
     @NotBlank(message = "Campo Obrigatório!!!")
     private String tipoMeta;
     
@@ -43,8 +43,6 @@ public class MetaEntity implements Serializable {
     @JoinColumn(name = "funcionariosID")
     private FuncionariosEntity funcionarios;
 
-    
-    
     //getters and setters
 	public float getResultadoPrevisto() {
 		return resultadoPrevisto;
@@ -122,6 +120,14 @@ public class MetaEntity implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public float getResultadoObtido() {
+		return resultadoObtido;
+	}
+
+	public void setResultadoObtido(float resultadoObtido) {
+		this.resultadoObtido = resultadoObtido;
 	}
 
     
