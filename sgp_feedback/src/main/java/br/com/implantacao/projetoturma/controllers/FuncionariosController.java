@@ -45,6 +45,12 @@ public class FuncionariosController {
 	@PostMapping("/salvar")
 	@ResponseStatus(HttpStatus.CREATED)
 	public FuncionariosEntity Salvar(@RequestBody FuncionariosEntity salvar) {
+		
+		Optional<FuncionariosEntity> FuncExistente= repository.findByMatricula(salvar.getMatricula());
+		if(FuncExistente.isPresent()) {
+			throw new RuntimeException("Matricula já cadastrada");
+		}//verificar se a matricula ja existe
+		
 		return repository.save(salvar);
 	}//salvar
 	

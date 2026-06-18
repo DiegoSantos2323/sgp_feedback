@@ -257,7 +257,6 @@ label {
 .row-2 > div {
   flex: 1;
 }
-
 /* ── Status ── */
 
 .status-group {
@@ -268,21 +267,22 @@ label {
 
 .status-opcao {
   flex: 1;
+  height: 46px;
+  border: 2px solid #c9d4e5;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 46px;
-  border: 2px solid #c9d4e5;
-  border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
   font-weight: bold;
   color: #8a96aa;
   background: white;
+  transition: 0.2s;
 }
 
-.status-opcao input[type="radio"] {
+.status-opcao input {
   display: none;
 }
 
@@ -290,14 +290,21 @@ label {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  flex-shrink: 0;
 }
 
-.status-dot.verde  { background: #0a7a3f; }
-.status-dot.vermelho { background: #d4183d; }
+.status-dot.verde {
+  background: #0a7a3f;
+}
 
-.ativo-opcao  { border-color: #0a7a3f; color: #0a7a3f; background: #0a7a3f14; }
-.inativo-opcao { border-color: #c9d4e5; color: #8a96aa; background: white; }
+.status-dot.vermelho {
+  background: #d4183d;
+}
+
+.status-opcao:has(input:checked) {
+  border-color: #0a7a3f;
+  background: rgba(10, 122, 63, 0.08);
+  color: #0a7a3f;
+}
 
 /* ── Botões ── */
 

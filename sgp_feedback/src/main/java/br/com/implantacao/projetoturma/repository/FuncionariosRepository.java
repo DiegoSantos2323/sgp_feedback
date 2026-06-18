@@ -1,6 +1,7 @@
 package br.com.implantacao.projetoturma.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -13,5 +14,5 @@ public interface FuncionariosRepository extends JpaRepository<FuncionariosEntity
 	List<FuncionariosEntity> findByNomeContainingIgnoreCase(String nome);
 	List<FuncionariosEntity> findByCpfContainingIgnoreCase(String cpf);
 	List<FuncionariosEntity> findByMatriculaContainingIgnoreCase(String matricula);
-	
+	Optional<FuncionariosEntity> findByMatricula(String matricula);
 }
