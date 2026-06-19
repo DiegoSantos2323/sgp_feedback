@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SGP - Nova Avaliação</title>
   <link rel="stylesheet" href="css/CriarAvaliacaoDeDesempenho.css">
+  <script src="js/AvaliacaoDesempenho.js"></script>
 </head>
 <body>
 
@@ -84,7 +85,7 @@
       <h2 class="form-titulo">Nova Avaliação</h2>
       <p class="form-sub">Registre o feedback e avalie o desempenho do colaborador.</p>
 
-      <form action="avaliacao-lista.html">
+     <form id="formAvaliacao">
 
         <!-- Identificação -->
         <p class="secao-titulo">Identificação</p>
@@ -94,18 +95,12 @@
         </label>
         <div class="input-box">
           <span class="icone">&#128100;</span>
-          <select id="funcionario" required>
-            <option value="" disabled selected>Selecione o funcionário...</option>
-            <option>Ana Paula Mendes</option>
-            <option>Carlos Eduardo Lima</option>
-            <option>Fernanda Costa</option>
-            <option>Roberto Alves</option>
-            <option>Marcos Oliveira</option>
-            <option>Juliana Soares</option>
-          </select>
+     <select id="funcionario" required>
+
+	</select>
         </div>
 
-        <label for="meta">
+        <select id="meta" required>
           Meta Avaliada <span class="obrig">*</span>
         </label>
         <div class="input-box">
@@ -156,14 +151,17 @@
           Nota (1 a 5) <span class="obrig">*</span>
         </label>
         <div class="nota-box">
-          <div class="estrelas-grandes">
-            <span class="star-g preenchida">&#9733;</span>
-            <span class="star-g preenchida">&#9733;</span>
-            <span class="star-g preenchida">&#9733;</span>
-            <span class="star-g preenchida">&#9733;</span>
-            <span class="star-g vazia">&#9733;</span>
-          </div>
-          <span class="nota-texto">4/5</span>
+        <div class="estrelas-grandes">
+
+    <span class="star-g" data-nota="1">&#9733;</span>
+    <span class="star-g" data-nota="2">&#9733;</span>
+    <span class="star-g" data-nota="3">&#9733;</span>
+    <span class="star-g" data-nota="4">&#9733;</span>
+    <span class="star-g" data-nota="5">&#9733;</span>
+
+	</div>
+
+<span class="nota-texto" id="notaTexto">0/5</span>
         </div>
 
         <!-- Feedback -->

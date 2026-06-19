@@ -446,3 +446,16 @@ label {
     align-items: flex-start;
   }
 }
+
+.star-g{
+    cursor:pointer;
+    font-size:40px;
+}
+
+.preenchida{
+    color:#FFD700;
+}
+
+.vazia{
+    color:#cfcfcf;
+}
