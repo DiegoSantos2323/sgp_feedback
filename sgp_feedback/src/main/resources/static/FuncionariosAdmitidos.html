@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funcionários Admitidos</title>
+  <link rel="stylesheet" href="css/FuncionariosAdmitidos.css">
+</head>
+<body onload="CarregarFuncionarios()">
+
+  <div class="container">
+    
+    <header class="header">
+
+    <button class="btn-view btn-voltar"
+        onclick="window.location.href='Principal.html'">
+        ← Voltar
+    </button>
+
+    <div class="header-center">
+        <h1>Funcionários Admitidos</h1>
+        <p>Gestão e controle do histórico de admissões da empresa</p>
+    </div>
+
+    <button class="btn-primary"
+        onclick="window.location.href='cadastro-etapa1.html'">
+        + Admitir Novo
+    </button>
+
+</header>
+
+    <main class="table-container">
+      
+      <div class="table-header">
+        <h2>Listagem de Colaboradores</h2>
+        <input type="text" placeholder="Buscar por nome, CPF ou matrícula...">
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Funcionário</th>
+            <th>Matrícula</th>
+            <th>CPF</th>
+            <th>Departamento</th>
+            <th>Cargo</th>
+            <th>Admissão</th>
+            <th>Salário Base</th>
+            <th>Dados Bancários</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaFolhas">
+        </tbody>
+      </table>
+    </main>
+    
+  </div>
+
+  <script type="text/javascript" src="js/FuncionariosAdmitidos.js"></script>
+</body>
+</html>
