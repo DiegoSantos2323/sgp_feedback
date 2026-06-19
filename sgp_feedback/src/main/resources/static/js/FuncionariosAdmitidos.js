@@ -1,7 +1,7 @@
-const API_LISTAR_TODOS = 'http://localhost:8014/pagamento/listartodos';
-const API_BUSCAR_POR_NOME = 'http://localhost:8014/funcionarios/buscarnome';
-const API_BUSCAR_POR_CPF = 'http://localhost:8014/funcionarios/buscacpf';
-const API_BUSCAR_POR_MATRICULA = 'http://localhost:8014/funcionarios/buscarmatricula';
+const API_LISTAR_TODOS = 'http://192.168.56.1:8014/pagamento/listartodos';
+const API_BUSCAR_POR_NOME = 'http://192.168.56.1:8014/funcionarios/buscarnome';
+const API_BUSCAR_POR_CPF = 'http://192.168.56.1:8014/funcionarios/buscacpf';
+const API_BUSCAR_POR_MATRICULA = 'http://192.168.56.1:8014/funcionarios/buscarmatricula';
 
 async function CarregarFuncionarios() {
     const response = await fetch(API_LISTAR_TODOS);

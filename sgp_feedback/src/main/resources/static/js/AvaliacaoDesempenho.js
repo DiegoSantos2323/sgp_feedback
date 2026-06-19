@@ -1,5 +1,5 @@
-const API_LISTAR = 'http://localhost:8014/funcionarios/listartodos';
-const API_SALVAR_AVALIACAO = 'http://localhost:8014/feedback/salvar';
+const API_LISTAR = 'http://192.168.56.1:8014/funcionarios/listartodos';
+const API_SALVAR_AVALIACAO = 'http://192.168.56.1:8014/feedback/salvar';
 
 
 window.onload = async function(){

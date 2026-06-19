@@ -1,7 +1,7 @@
-const API_LISTAR_POR_ID = 'http://localhost:8014/funcionarios/listarporid';
-const API_SALVAR = 'http://localhost:8014/funcionarios/salvar';
-const API_ATUALIZAR = 'http://localhost:8014/funcionarios/atualizar';
-const API_GERAR_MATRICULA = 'http://localhost:8014/funcionarios/gerarmatricula';
+const API_LISTAR_POR_ID = 'http://192.168.56.1:8014/funcionarios/listarporid';
+const API_SALVAR = 'http://192.168.56.1:8014/funcionarios/salvar';
+const API_ATUALIZAR = 'http://192.168.56.1:8014/funcionarios/atualizar';
+const API_GERAR_MATRICULA = 'http://192.168.56.1:8014/funcionarios/gerarmatricula';
 
 let editandoId = null;
 
