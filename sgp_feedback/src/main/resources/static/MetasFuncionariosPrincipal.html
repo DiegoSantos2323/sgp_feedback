@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SGP - Metas de Funcionários</title>
   <link rel="stylesheet" href="css/MetasFuncionarios.css">
+	<script src="js/MetasFuncionariosPrincipal.js"></script>
 </head>
 <body>
 
@@ -26,19 +27,19 @@
   <div class="resumo-cards">
     <div class="resumo-card">
       <p class="resumo-label">Total de Metas</p>
-      <p class="resumo-valor cor-azul-escuro">4</p>
+      <p class="resumo-valor cor-azul-escuro"  id="totalMetas">0</p>
     </div>
     <div class="resumo-card bg-azul">
-      <p class="resumo-label">Em Andamento</p>
-      <p class="resumo-valor cor-azul">2</p>
+      <p class="resumo-label"  >Em Andamento</p>
+      <p class="resumo-valor cor-azul" id="metasAndamento">2</p>
     </div>
     <div class="resumo-card bg-verde">
-      <p class="resumo-label">Concluídas</p>
-      <p class="resumo-valor cor-verde">2</p>
+      <p class="resumo-label" >Concluídas</p>
+      <p class="resumo-valor cor-verde" id="metasConcluidas">2</p>
     </div>
     <div class="resumo-card bg-roxo">
-      <p class="resumo-label">Média Geral</p>
-      <p class="resumo-valor cor-roxo">92%</p>
+      <p class="resumo-label" >Média Geral</p>
+      <p class="resumo-valor cor-roxo" id="mediaGeral">92%</p>
     </div>
   </div>
 
@@ -69,187 +70,11 @@
   </div>
 
   <!-- Lista de metas -->
-  <div class="metas-lista">
+ <div class="metas-lista" id="listaMetas">
 
-    <!-- Meta 1 -->
-    <a href="metas-detalhe.html" class="meta-card borda-azul">
-      <div class="meta-topo">
-        <div class="meta-func">
-          <div class="avatar">AP</div>
-          <div>
-            <p class="func-nome">Ana Paula Mendes</p>
-            <p class="func-desc">Aumentar volume de vendas mensais</p>
-          </div>
-        </div>
-        <div class="meta-badges">
-          <span class="tipo-badge tipo-vendas">&#128722; Vendas</span>
-          <span class="status-badge status-andamento">&#9201; Em Andamento</span>  
-        </div>
-      </div>
+</div>
 
-      <div class="progress-wrap">
-        <div class="progress-bar">
-          <div class="progress-fill fill-azul" style="width: 86%"></div>
-        </div>
-        <div class="progress-labels">
-          <span class="pct-label cor-azul">86%</span>
-          <span class="pct-meta">Meta: 100%</span>
-        </div>
-      </div>
 
-      <div class="meta-rodape">
-        <div class="meta-numeros">
-          <div class="meta-num-item">
-            <p class="num-label">Meta Prevista</p>
-            <p class="num-valor">R$ 50.000,00</p>
-          </div>
-          <div class="meta-num-item">
-            <p class="num-label">Resultado Obtido</p>
-            <p class="num-valor">R$ 43.000,00</p>
-          </div>
-          <div class="meta-num-item">
-            <p class="num-label">Período</p>
-            <p class="num-valor">01/06/2026 – 30/06/2026</p>
-          </div>
-        </div>
-        <button class="btn-concluir">&#10003; Concluir</button>
-      </div>
-    </a>
-
-    <!-- Meta 2 -->
-    <a href="metas-detalhe.html" class="meta-card borda-roxo">
-      <div class="meta-topo">
-        <div class="meta-func">
-          <div class="avatar">CE</div>
-          <div>
-            <p class="func-nome">Carlos Eduardo Lima</p>
-            <p class="func-desc">Reduzir tempo médio de atendimento</p>
-          </div>
-        </div>
-        <div class="meta-badges">
-          <span class="tipo-badge tipo-atend">&#127911; Atendimento</span>
-          <span class="status-badge status-concluida">&#10004; Concluída</span>
-        </div>
-      </div>
-
-      <div class="progress-wrap">
-        <div class="progress-bar">
-          <div class="progress-fill fill-verde" style="width: 100%"></div>
-        </div>
-        <div class="progress-labels">
-          <span class="pct-label cor-verde">100%</span>
-          <span class="pct-meta">Meta: 100%</span>
-        </div>
-      </div>
-
-      <div class="meta-rodape">
-        <div class="meta-numeros">
-          <div class="meta-num-item">
-            <p class="num-label">Meta Prevista</p>
-            <p class="num-valor">R$ 200,00</p>
-          </div>
-          <div class="meta-num-item">
-            <p class="num-label">Resultado Obtido</p>
-            <p class="num-valor">R$ 200,00</p>
-          </div>
-          <div class="meta-num-item">
-            <p class="num-label">Período</p>
-            <p class="num-valor">01/05/2026 – 31/05/2026</p>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <!-- Meta 3 -->
-    <a href="metas-detalhe.html" class="meta-card borda-laranja">
-      <div class="meta-topo">
-        <div class="meta-func">
-          <div class="avatar">FC</div>
-          <div>
-            <p class="func-nome">Fernanda Costa</p>
-            <p class="func-desc">Controle de estoque — reduzir perdas</p>
-          </div>
-        </div>
-        <div class="meta-badges">
-          <span class="tipo-badge tipo-estoque">&#128230; Estoque</span>
-          <span class="status-badge status-andamento">&#9201; Em Andamento</span>
-        </div>
-      </div>
-
-      <div class="progress-wrap">
-        <div class="progress-bar">
-          <div class="progress-fill fill-laranja" style="width: 68%"></div>
-        </div>
-        <div class="progress-labels">
-          <span class="pct-label cor-laranja">68%</span>
-          <span class="pct-meta">Meta: 100%</span>
-        </div>
-      </div>
-
-      <div class="meta-rodape">
-        <div class="meta-numeros">
-          <div class="meta-num-item">
-            <p class="num-label">Meta Prevista</p>
-            <p class="num-valor">R$ 10.000,00</p>
-          </div>
-          <div class="meta-num-item">
-            <p class="num-label">Resultado Obtido</p>
-            <p class="num-valor">R$ 6.800,00</p>
-          </div>
-          <div class="meta-num-item">
-            <p class="num-label">Período</p>
-            <p class="num-valor">01/06/2026 – 31/07/2026</p>
-          </div>
-        </div>
-        <button class="btn-concluir">&#10003; Concluir</button>
-      </div>
-    </a>
-
-    <!-- Meta 4 -->
-    <a href="metas-detalhe.html" class="meta-card borda-verde">
-      <div class="meta-topo">
-        <div class="meta-func">
-          <div class="avatar">RA</div>
-          <div>
-            <p class="func-nome">Roberto Alves</p>
-            <p class="func-desc">Reduzir custos operacionais do setor</p>
-          </div>
-        </div>
-        <div class="meta-badges">
-          <span class="tipo-badge tipo-fin">&#128181; Financeiro</span>
-          <span class="status-badge status-concluida">&#10004; Concluída</span>
-        </div>
-      </div>
-
-      <div class="progress-wrap">
-        <div class="progress-bar">
-          <div class="progress-fill fill-verde" style="width: 100%"></div>
-        </div>
-        <div class="progress-labels">
-          <span class="pct-label cor-verde">100%</span>
-          <span class="pct-meta">Meta: 100%</span>
-        </div>
-      </div>
-
-      <div class="meta-rodape">
-        <div class="meta-numeros">
-          <div class="meta-num-item">
-            <p class="num-label">Meta Prevista</p>
-            <p class="num-valor">R$ 15.000,00</p>
-          </div>
-          <div class="meta-num-item">
-            <p class="num-label">Resultado Obtido</p>
-            <p class="num-valor">R$ 15.000,00</p>
-          </div>
-          <div class="meta-num-item">
-            <p class="num-label">Período</p>
-            <p class="num-valor">01/04/2026 – 30/04/2026</p>
-          </div>
-        </div>
-      </div>
-    </a>
-
-  </div>
 </div>
 
 </body>
