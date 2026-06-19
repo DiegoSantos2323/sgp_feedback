@@ -18,8 +18,6 @@ public class MetaEntity implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String titulo;//: Nome curto da meta (ex: "Aumentar vendas em 10%").
     
     @NotBlank(message = "Campo Obrigatório!!!")
     private String descricao;//Detalhamento do que precisa ser feito.
@@ -37,6 +35,7 @@ public class MetaEntity implements Serializable {
     
     private float resultadoPrevisto;//não é obrigatório
     @NotBlank(message = "Campo Obrigatório!!!")
+    
     private String tipoMeta;
     
     @ManyToOne
@@ -66,14 +65,6 @@ public class MetaEntity implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
 	}
 
 	public String getDescricao() {
