@@ -1,4 +1,4 @@
-const API_LISTAR_METAS = "http://localhost:8014/meta/listartodos";
+const API_LISTAR_METAS = "http://192.168.56.1:8014/meta/listartodos";
 
 
 // CADASTRAR METAS

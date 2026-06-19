@@ -1,5 +1,5 @@
-const API_LISTAR_FUNCIONARIOS ="http://localhost:8014/funcionarios/listartodos";
-const API_SALVAR_META = "http://localhost:8014/meta/salvar";
+const API_LISTAR_FUNCIONARIOS ="http://192.168.56.1:8014/funcionarios/listartodos";
+const API_SALVAR_META = "http://192.168.56.1:8014/meta/salvar";
 
 //LISTAR FUNCIONARIOS
 async function carregarFuncionarios() {

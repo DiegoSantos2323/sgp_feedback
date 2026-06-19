@@ -1,6 +1,6 @@
-const API_SALVAR = "http://localhost:8014/pagamento/salvar";
-const API_LISTAR_TODOS = 'http://localhost:8014/funcionarios/listartodos';
-const API_LISTAR_POR_ID = 'http://localhost:8014/funcionarios/listarporid/';
+const API_SALVAR = "http://192.168.56.1:8014/pagamento/salvar";
+const API_LISTAR_TODOS = 'http://192.168.56.1:8014/funcionarios/listartodos';
+const API_LISTAR_POR_ID = 'http://192.168.56.1:8014/funcionarios/listarporid/';
 
 async function salvarFolha() {
 
